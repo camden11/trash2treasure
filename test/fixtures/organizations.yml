@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+trash2treasure:
+  id: 1
+  name: trash2treasure
 
-two:
-  name: MyString
+org2:
+  name: org2

@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727190638) do
+ActiveRecord::Schema.define(version: 20160727203508) do
 
   create_table "organizations", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "display_name"
+    t.string   "join_code"
   end
 
+  add_index "organizations", ["name"], name: "index_organizations_on_name", unique: true
+
   create_table "users", force: true do |t|
-    t.string   "username"
+    t.string   "name"
     t.string   "email"
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
