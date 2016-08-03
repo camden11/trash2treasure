@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  attr_reader :organization_join_code
+
   belongs_to :organization
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -11,5 +13,9 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
 
   has_secure_password
+
+  def organization_join_code=(join_code)
+    @organization_id = Organization.find_by(join_code: join_code)
+  end
 
 end
