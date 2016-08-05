@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = "Welcome to #{@user.organization.preferred_name}"
+      redirect_to @user.organization
+    else
+      render 'new'
     end
-    render 'new'
   end
 
   private
