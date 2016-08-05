@@ -3,6 +3,7 @@
 trash2treasure:
   id: 1
   name: trash2treasure
+  join_code: t2tjoin
 
 org2:
   name: org2
