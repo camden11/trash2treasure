@@ -7,10 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      #
-    else
-      render 'new'
+      flash[:success] = "Welcome to #{@user.organization.preferred_name}"
     end
+    render 'new'
   end
 
   private

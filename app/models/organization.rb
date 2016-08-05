@@ -6,6 +6,10 @@ class Organization < ActiveRecord::Base
 
   before_create :generate_join_code
 
+  def preferred_name
+    self.display_name || self.name
+  end
+
   private
 
   def generate_join_code
