@@ -17,7 +17,9 @@ class User < ActiveRecord::Base
   end
 
   def organization_join_code=(join_code)
-    self.organization_id = Organization.find_by(join_code: join_code).id
+    if organization = Organization.find_by(join_code: join_code)
+      self.organization_id = organization.id
+    end
   end
 
 end
