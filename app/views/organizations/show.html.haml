@@ -2,6 +2,14 @@
 
 %br
 %h3
+  Sales
+
+%ul
+  - @sales.each do |sale|
+    %li= sale.name
+
+%br
+%h3
   Members
 
 %ul

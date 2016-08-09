@@ -47,4 +47,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_member_of?(organization)
+    self.organization == organization
+  end
+
 end
