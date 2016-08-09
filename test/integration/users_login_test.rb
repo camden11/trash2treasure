@@ -27,5 +27,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_not logged_in?
     assert_redirected_to root_url
+    delete logout_path
+    follow_redirect!
   end
 end
