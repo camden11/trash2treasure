@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
+    if logged_in?
+      redirect_to current_user.organization
+    end
   end
 
   def create
+    return if logged_in?
     user = User.find_by(email: session_params[:email].downcase)
     if user && user.authenticate(session_params[:password])
       log_in user
