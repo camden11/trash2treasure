@@ -17,12 +17,15 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "valid login" do
+  test "valid login and logout" do
     get login_path
     post login_path, session: { email: @user.email, password: 'test123' }
     assert logged_in?
     assert_redirected_to @user.organization
     follow_redirect!
     assert_template 'organizations/show'
+    delete logout_path
+    assert_not logged_in?
+    assert_redirected_to root_url
   end
 end
