@@ -8,7 +8,4 @@ class OrganizationsController < ApplicationController
 
   private
 
-  def authorized_user
-    current_user && current_user.is_member_of?(@organization)
-  end
 end

@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
 
-  # before_action :authorized_user
+  before_action :logged_in_user, only: [:create, :destroy]
 
   def index
   end
