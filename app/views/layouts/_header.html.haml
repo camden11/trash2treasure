@@ -1,6 +1,12 @@
-- if current_user
+- if logged_in?
   = "Logged in to #{current_user.organization.preferred_name} as #{current_user.name}"
   %br
   = link_to "Log out", logout_path, method: "delete"
+
+- else
+  = link_to "Log in", login_path
   %br
-  %br
+  = link_to "Sign up", signup_path
+%br
+%br
+

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'website_pages#home'
 
   get 'sessions/new'
 
