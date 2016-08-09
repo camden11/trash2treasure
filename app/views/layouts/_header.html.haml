@@ -1,0 +1,6 @@
+- if current_user
+  = "Logged in to #{current_user.organization.preferred_name} as #{current_user.name}"
+  %br
+  = link_to "Log out", logout_path, method: "delete"
+  %br
+  %br

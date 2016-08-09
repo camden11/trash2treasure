@@ -8,6 +8,7 @@ user_1:
   name: Camden Phalen
   email: camden@example.com
   organization_id: 1
+  password_digest: <%= User.digest('test123') %>
 
 user_2:
   name: User 2
