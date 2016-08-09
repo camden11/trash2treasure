@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to #{@user.organization.preferred_name}"
       redirect_to @user.organization
     else

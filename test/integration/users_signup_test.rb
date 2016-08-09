@@ -22,6 +22,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', 1 do
       post users_path, user: valid_signup_info
     end
+    follow_redirect!
+    assert_template 'organizations/show'
+    assert logged_in?
   end
-  assert_template 'users/new'
 end
