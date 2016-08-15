@@ -6,7 +6,10 @@
 
 %ul
   - @sales.each do |sale|
-    %li= sale.name
+    %li
+      = link_to sale.name, sale
+  %li
+    = link_to "Create new sale", new_sale_path
 
 
 %br

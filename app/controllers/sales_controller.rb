@@ -6,14 +6,22 @@ class SalesController < ApplicationController
   end
 
   def show
+    @sale = Sale.find(params[:id])
+  end
+
+  def new
+    @sale = Sale.new
   end
 
   def create
-    @sale = current_organization.sales.build(sale_params)
+    @sale = Sale.new sale_params
+    @sale.organization_id = current_organization.id
     if @sale.save
-      flash[:success] = "Sale created!"
+      flash[:success] = "#{@sale.name} has been created"
+      redirect_to @sale
+    else 
+      render 'new'
     end
-    redirect_to current_organization
   end
 
   def destroy

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :organizations, only: [:show]
-  resources :sale, only: [:show]
+  resources :sales, only: [:show, :new, :create]
 end
