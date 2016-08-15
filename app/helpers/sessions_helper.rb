@@ -23,7 +23,7 @@ module SessionsHelper
   end
 
   def current_organization
-    current_user.organization
+    current_user.try :organization
   end
 
   def logged_in?

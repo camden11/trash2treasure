@@ -6,6 +6,4 @@ class OrganizationsController < ApplicationController
     @sales = @organization.sales
   end
 
-  private
-
 end
