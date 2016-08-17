@@ -30,4 +30,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     follow_redirect!
   end
+
+  test "already logged_in" do
+    log_in @user
+    get login_path
+    assert_redirected_to @user.organization
+  end
 end
