@@ -7,6 +7,7 @@ class SalesController < ApplicationController
 
   def show
     @sale = Sale.find(params[:id])
+    @item = Item.new if @sale.organization == current_organization
   end
 
   def new
@@ -14,8 +15,7 @@ class SalesController < ApplicationController
   end
 
   def create
-    @sale = Sale.new sale_params
-    @sale.organization_id = current_organization.id
+    @sale = current_organization.sales.build(sale_params)
     if @sale.save
       flash[:success] = "#{@sale.name} has been created"
       redirect_to @sale

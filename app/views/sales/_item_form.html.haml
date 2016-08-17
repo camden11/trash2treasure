@@ -1,0 +1,21 @@
+%h3 Add new item
+
+= form_for @item do |f|
+
+  = render partial: 'shared/error_messages', locals: { object: @item }
+
+  = f.label :name
+  = f.text_field :name
+
+  = f.label :code
+  = f.text_field :code
+
+  = f.label :price
+  = f.number_field :price, step: 0.01
+
+  = f.label :total_quantity
+  = f.number_field :total_quantity
+
+  = f.hidden_field :sale_id, value: @sale.id
+
+  = f.submit "Create item"

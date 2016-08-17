@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout',  to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
   resources :organizations, only: [:show]
   resources :sales, only: [:show, :new, :create]
+  resources :items, only: [:index, :create]
 end

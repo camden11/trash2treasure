@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    redirect_to :back
+  end
+
   def new
     @user = User.new
   end
