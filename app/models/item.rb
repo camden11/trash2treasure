@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
   before_validation { self.current_quantity = self.total_quantity }
 
   def organization
-    self.sale.organization
+    self.sale.organization if self.sale
   end
   
 end
