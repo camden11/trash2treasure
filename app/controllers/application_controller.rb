@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  private
+
+  def website
+    @website = true
+  end
 end

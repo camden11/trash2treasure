@@ -1,0 +1,19 @@
+nav.navbar.navbar-default.navbar-fixed-top.website-header {
+  border: none;
+  background-color: transparent;
+  
+  .navbar-header > a {
+    color: black;
+  }
+
+  .navbar-nav > li > a {
+    color: black;
+    border-bottom: 1px solid;
+    border-color: transparent;
+    transition: border-color .25s;
+
+    &:hover {
+      border-color: black;
+    }
+  }
+}

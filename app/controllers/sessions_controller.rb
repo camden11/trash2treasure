@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  before_action :website
+
   def new
     if logged_in?
       redirect_to current_user.organization

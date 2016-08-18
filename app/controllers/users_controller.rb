@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    website
     @user = User.new
   end
 
