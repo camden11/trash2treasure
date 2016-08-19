@@ -1,22 +1,35 @@
-= @organization.preferred_name
+.row.organization-header-row
+  .col-xs-2
+    = image_tag @organization.image.url(:small), class: "organization-image"
+  .col-xs-10
+    .vertical-center.full-height
+      %h1= @organization.preferred_name
 
-%br
-%h3
-  Sales
+.row
+  .col-md-6.organization-list
+    %h2 Sales
+    %ul
+      - @sales.each do |sale|
+        %li
+          .row
+            .col-sm-6
+              = link_to sale.name, sale
+            .col-sm-6.gray
+              = sale.start_date
+      - if current_organization == @organization
+        %li
+          = link_to "Create new sale", new_sale_path
 
-%ul
-  - @sales.each do |sale|
-    %li
-      = link_to sale.name, sale
-  - if current_organization == @organization
-    %li
-      = link_to "Create new sale", new_sale_path
-
-
-%br
-%h3
-  Members
-
-%ul
-  - @users.each do |user|
-    %li= user.name
+  .col-md-6.organization-list
+    %h2 Members
+    %ul
+      - @users.each do |user|
+        %li
+          .row
+            .col-sm-6
+              = user.name
+            .col-sm-6.gray
+              Position
+      - if current_organization == @organization
+        %li
+          = link_to "Invite new users", "#"

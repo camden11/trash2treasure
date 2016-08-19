@@ -11,4 +11,8 @@ class Sale < ActiveRecord::Base
   validates :start_time, presence: true
   validates :end_time, presence: true
 
+  def start_date
+    self.start_time.strftime("%B %-d")
+  end
+
 end

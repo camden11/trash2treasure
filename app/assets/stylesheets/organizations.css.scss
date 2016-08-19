@@ -1,3 +1,50 @@
 // Place all the styles related to the Organizations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.organizations.show {
+
+  .organization-header-row {
+    height: 60px;
+    @media #{$small-screen} { height: 100px }
+    @media #{$med-screen} { height: 150px }
+
+    h1 {
+      font-family: "Avenir-Light";
+      margin: 0;
+    }
+
+    .organization-image {
+      height: 60px;
+      width: 60px;
+      @media #{$small-screen} {
+        height: 100px;
+        width: 100px;
+      }
+      @media #{$med-screen} {
+        height: 150px;
+        width: 150px;
+      }
+    }
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
+  .organization-list {
+
+    .row {
+      margin-bottom: 10px;
+      @media #{$small-screen} { margin-bottom: 0 }
+
+      .col-sm-6.gray {
+        @media #{$small-screen} { text-align: right }
+      }
+    }
+  }
+
+}

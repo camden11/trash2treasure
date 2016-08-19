@@ -15,14 +15,18 @@ nav.navbar.navbar-default.header {
     }
   }
 
-  .navbar-nav > li > a {
-    color: black;
-    border-bottom: 1px solid;
-    border-color: transparent;
-    transition: border-color .25s;
+  .navbar-nav {
 
-    &:hover {
-      border-color: black;
+    margin-top: 3.5px;
+    > li > a {
+      color: black;
+      border-bottom: 1px solid;
+      border-color: transparent;
+      transition: border-color .25s;
+
+      &:hover {
+        border-color: black;
+      }
     }
   }
 }
