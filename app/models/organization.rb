@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
   has_many :users
   has_many :sales
 
-  has_attached_file :image
+  has_attached_file :image, default_url: "/images/image_placeholder.jpg"
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
 
