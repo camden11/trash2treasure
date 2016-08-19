@@ -3,6 +3,8 @@ class Organization < ActiveRecord::Base
   has_many :users
   has_many :sales
 
+  has_attached_file :image
+
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
 
   before_create :generate_join_code

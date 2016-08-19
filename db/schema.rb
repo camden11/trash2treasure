@@ -11,46 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809170246) do
+ActiveRecord::Schema.define(version: 20160819175948) do
 
-  create_table "items", force: true do |t|
-    t.string   "name"
-    t.string   "code"
+  create_table "items", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.string   "code",               limit: 255
     t.float    "price"
     t.integer  "total_quantity"
     t.integer  "current_quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sale_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
-  create_table "organizations", force: true do |t|
-    t.string   "name"
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "display_name"
-    t.string   "join_code"
+    t.string   "display_name",       limit: 255
+    t.string   "join_code",          limit: 255
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "organizations", ["name"], name: "index_organizations_on_name", unique: true
 
-  create_table "sales", force: true do |t|
-    t.string   "name"
+  create_table "sales", force: :cascade do |t|
+    t.string   "name",               limit: 255
     t.integer  "organization_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_digest"
+    t.string   "password_digest", limit: 255
+    t.string   "remember_digest", limit: 255
   end
 
 end

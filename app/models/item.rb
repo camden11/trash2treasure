@@ -2,6 +2,8 @@ class Item < ActiveRecord::Base
 
   belongs_to :sale
 
+  has_attached_file :image
+
   validates :name, presence: true, length: { maximum: 100 }
   validates :code, length: { maximum: 4 }
   validates :price, presence: true
