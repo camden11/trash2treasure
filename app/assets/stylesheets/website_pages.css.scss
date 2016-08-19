@@ -6,7 +6,7 @@
   -o-background-size: cover;
   background-size: cover;
 
-  nav.navbar.navbar-default.navbar-fixed-top.website-header {
+  nav.navbar.navbar-default.website-header {
     margin-bottom: 0;
 
     .navbar-header > a {
@@ -25,7 +25,8 @@
   .jumbotron {
 
     background-color: transparent;
-    height: 100%;
+    height: calc(100% - 57px);
+    min-height: calc(100vh - 57px);
     margin: 0;
     padding: 0;
 

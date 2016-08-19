@@ -1,14 +1,11 @@
-- if logged_in?
-  Logged in to 
-  = link_to "#{current_organization.preferred_name}", current_organization
-  = "as #{current_user.name}"
-  %br
-  = link_to "Log out", logout_path, method: "delete"
+%nav.navbar.navbar-default.header
+  .container-fluid
+    .navbar-header
+      = link_to current_organization.preferred_name, current_organization, class: "navbar-brand"
 
-- else
-  = link_to "Log in", login_path
-  %br
-  = link_to "Sign up", signup_path
-%br
-%br
-
+    .collapse.navbar-collapse#website-header-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "Home", current_organization
+        %li
+          = link_to "Log out", logout_path, method: "delete"

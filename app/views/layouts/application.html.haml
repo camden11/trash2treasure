@@ -6,14 +6,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body{ class: body_class_name }
-    - if @website && !logged_in?
-      = render partial: 'layouts/website_header'
-    - else
-      = render partial: 'layouts/header'
-      
-    - flash.each do |message_type, message|
-      %div{class: "alert alert-#{message_type}"}
-        = message
-    = yield
+    .container
+      - if @website && !logged_in?
+        = render partial: 'layouts/website_header'
+      - else
+        = render partial: 'layouts/header'
+        
+      - flash.each do |message_type, message|
+        %div{class: "alert alert-#{message_type}"}
+          = message
+      = yield
 
 
