@@ -7,7 +7,7 @@
     = csrf_meta_tags
   %body{ class: body_class_name }
     .container
-      - if @website && !logged_in?
+      - if !logged_in?
         = render partial: 'layouts/website_header'
       - else
         = render partial: 'layouts/header'
