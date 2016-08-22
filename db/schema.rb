@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822205036) do
+ActiveRecord::Schema.define(version: 20160822210323) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20160822205036) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  add_index "items", ["name"], name: "index_items_on_name"
+  add_index "items", ["sale_id"], name: "index_items_on_sale_id"
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -55,12 +58,17 @@ ActiveRecord::Schema.define(version: 20160822205036) do
     t.datetime "image_updated_at"
   end
 
+  add_index "sales", ["organization_id"], name: "index_sales_on_organization_id"
+
   create_table "shopper_items", force: :cascade do |t|
     t.integer  "shopper_id"
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "shopper_items", ["item_id"], name: "index_shopper_items_on_item_id"
+  add_index "shopper_items", ["shopper_id"], name: "index_shopper_items_on_shopper_id"
 
   create_table "shoppers", force: :cascade do |t|
     t.datetime "created_at", null: false
