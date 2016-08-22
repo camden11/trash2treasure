@@ -2,11 +2,14 @@ class SalesController < ApplicationController
 
   before_action :logged_in_user, only: [:new, :create, :destroy]
 
+  include ShoppersHelper
+
   def index
   end
 
   def show
     @sale = Sale.find(params[:id])
+    new_shopper @sale.id
     @item = Item.new if @sale.organization == current_organization
   end
 
