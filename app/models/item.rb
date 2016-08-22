@@ -2,6 +2,8 @@ class Item < ActiveRecord::Base
 
   belongs_to :sale
 
+  has_many :shoppers, through: :shopper_items
+
   has_attached_file :image
 
   validates :name, presence: true, length: { maximum: 100 }
