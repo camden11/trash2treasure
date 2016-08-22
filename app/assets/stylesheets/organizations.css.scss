@@ -3,30 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .organizations.show {
 
-  .organization-header-row {
-    height: 60px;
-    @media #{$small-screen} { height: 100px }
-    @media #{$med-screen} { height: 150px }
-
-    h1 {
-      font-family: "Avenir-Light";
-      margin: 0;
-    }
-
-    .organization-image {
-      height: 60px;
-      width: 60px;
-      @media #{$small-screen} {
-        height: 100px;
-        width: 100px;
-      }
-      @media #{$med-screen} {
-        height: 150px;
-        width: 150px;
-      }
-    }
-  }
-
   ul {
     padding-left: 0;
 

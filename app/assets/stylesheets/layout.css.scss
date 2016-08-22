@@ -1,0 +1,24 @@
+// General Rules
+.header-row {
+    height: 60px;
+    @media #{$small-screen} { height: 100px }
+    @media #{$med-screen} { height: 150px }
+
+    h1 {
+      font-family: "Avenir-Light";
+      margin: 0;
+    }
+
+    .profile-image {
+      height: 60px;
+      width: 60px;
+      @media #{$small-screen} {
+        height: 100px;
+        width: 100px;
+      }
+      @media #{$med-screen} {
+        height: 150px;
+        width: 150px;
+      }
+    }
+  }

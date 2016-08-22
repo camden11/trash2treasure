@@ -15,4 +15,8 @@ class Sale < ActiveRecord::Base
     self.start_time.strftime("%B %-d")
   end
 
+  def preferred_image
+    self.image.url == "/images/original/missing.png" ? self.organization.image : self.image
+  end
+
 end

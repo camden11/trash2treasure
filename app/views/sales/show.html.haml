@@ -1,9 +1,28 @@
-= @sale.name
+.row.header-row
+  .col-xs-2
+    = image_tag @sale.preferred_image.url(:small), class: "profile-image"
+  .col-xs-10
+    .vertical-center.full-height
+      %h1= @sale.name
 
-%h3 Items for sale
-%ul
+.row.item-search
+  .col-xs-12
+    .input-group
+      %input.form-control{ type: "text", placeholder: "Search" }
+      %span.input-group-btn
+        %button.btn.btn-default{ type: "button" }
+          Search
+
+.row.sale-items
   - @sale.items.each do |item|
-    %li= item.name
+    .col-sm-6.col-lg-4
+      .item-block
+        .row.vertical-center
+          .col-xs-8
+            = item.name
+          .col-xs-4.text-right
+            = number_to_currency item.price
 
 - if @item
   = render partial: 'sales/item_form'
+  = render partial: 'sales/item_csv'

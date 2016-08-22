@@ -1,6 +1,6 @@
-.row.organization-header-row
+.row.header-row
   .col-xs-2
-    = image_tag @organization.image.url(:small), class: "organization-image"
+    = image_tag @organization.image.url(:small), class: "profile-image"
   .col-xs-10
     .vertical-center.full-height
       %h1= @organization.preferred_name
