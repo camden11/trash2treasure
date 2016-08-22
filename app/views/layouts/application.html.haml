@@ -7,10 +7,12 @@
     = csrf_meta_tags
   %body{ class: body_class_name }
     .container
-      - if !logged_in?
-        = render partial: 'layouts/website_header'
-      - else
+      - if logged_in?
         = render partial: 'layouts/header'
+      - elsif @sale_nav
+        = render partial: 'layouts/shopper_header'
+      - else
+        = render partial: 'layouts/website_header'
         
       - flash.each do |message_type, message|
         %div{class: "alert alert-#{message_type}"}

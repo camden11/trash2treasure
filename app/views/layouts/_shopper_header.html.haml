@@ -1,0 +1,11 @@
+%nav.navbar.navbar-default.header
+  .container-fluid
+    .navbar-header
+      = link_to "Trash2Treasure", root_url, class: "navbar-brand"
+
+    .collapse.navbar-collapse#website-header-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to @sale.name, @sale
+        %li
+          = link_to "Cart", current_shopper(@sale)

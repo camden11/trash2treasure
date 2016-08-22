@@ -1,6 +1,7 @@
 class SalesController < ApplicationController
 
   before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :sale_nav, only: [:show]
 
   include ShoppersHelper
 
@@ -9,7 +10,7 @@ class SalesController < ApplicationController
 
   def show
     @sale = Sale.find(params[:id])
-    new_shopper @sale.id
+    new_shopper @sale
     @item = Item.new if @sale.organization == current_organization
   end
 

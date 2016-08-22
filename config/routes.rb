@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :organizations, only: [:show]
   resources :sales, only: [:show, :new, :create]
   resources :items, only: [:index, :create]
+  resources :shoppers, only: [:show]
 end

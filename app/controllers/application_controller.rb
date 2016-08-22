@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def website
     @website = true
   end
+
+  def sale_nav
+    @sale_nav = true
+  end
 end
