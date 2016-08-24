@@ -16,7 +16,7 @@
 .row.sale-items
   - @sale.items.each do |item|
     .col-sm-6.col-lg-4
-      .item-block
+      = link_to(shopper_items_path(item_id: item.id, quantity: 1), method: :post, remote: true, class: "item-block") do
         .row.vertical-center
           .col-xs-8
             = item.name
@@ -26,5 +26,3 @@
 - if @item
   = render partial: 'sales/item_form'
   = render partial: 'sales/item_csv'
-- else
-  = current_shopper(@sale).id

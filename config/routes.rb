@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :sales, only: [:show, :new, :create]
   resources :items, only: [:index, :create]
   resources :shoppers, only: [:show]
+  resources :shopper_items, only: [:create, :destroy]
 end

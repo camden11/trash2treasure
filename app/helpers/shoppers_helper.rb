@@ -20,4 +20,7 @@ module ShoppersHelper
   def session_key(sale)
     "shopper_id_#{sale.id}".to_sym
   end
+
+  private
+
 end
