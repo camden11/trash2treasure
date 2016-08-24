@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(session_params[:password])
       log_in user
       remember user
+      delete_shoppers
       redirect_back_or user.organization
     else
       flash.now[:danger] = 'Invalid email/password combination'

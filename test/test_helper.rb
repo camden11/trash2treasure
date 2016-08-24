@@ -23,6 +23,11 @@ class ActiveSupport::TestCase
     end
   end
 
+  def shop_as(sale, shopper)
+    raise "shopper must match sale" unless shopper.sale == sale
+    session["shopper_id_#{sale.id}".to_sym] = shopper.id
+  end
+
   private
 
   def integration_test?

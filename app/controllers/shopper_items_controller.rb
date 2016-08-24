@@ -1,11 +1,10 @@
 class ShopperItemsController < ApplicationController
 
   def create
-    @shopper_item = current_shopper(sale).shopper_items.build shopper_item_params
-    @shopper_item.save
-  end
-
-  def destroy
+    if active_shopper? sale
+      @shopper_item = current_shopper(sale).shopper_items.build shopper_item_params
+      @shopper_item.save
+    end
   end
 
   private

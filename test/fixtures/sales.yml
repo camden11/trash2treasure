@@ -5,7 +5,15 @@
 # below each fixture, per the syntax in the comments below
 #
 sale_1:
+  id: 1
   name: "Trash2Treasure 2016"
   organization_id: 1
   start_time: <%= Time.now - 5.hours %>
+  end_time: <%= Time.now %>
+
+sale_2:
+  id: 2
+  name: "Garage Sale"
+  organization_id: 1
+  start_time: <%= Time.now - 12.hours %>
   end_time: <%= Time.now %>

@@ -5,6 +5,7 @@ class ShoppersController < ApplicationController
   def show
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
+    redirect_to @sale unless current_shopper(@sale) == @shopper
     @items = @shopper.items
   end
 end
