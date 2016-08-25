@@ -15,6 +15,18 @@ class ShopperItemsControllerTest < ActionController::TestCase
     assert ShopperItem.last.shopper == @shopper_1
   end
 
+  test "should create new shopper item if one does not exist, or alter quantity if one does" do
+    shop_as @sale, @shopper_1
+    assert_difference("ShopperItem.count") do
+      xhr :post, :create, { item_id: 1, quantity: 1 }
+    end
+    assert ShopperItem.last.quantity == 1
+    assert_no_difference("ShopperItem.count") do
+      xhr :post, :create, { item_id: 1, quantity: 1 }
+    end
+    assert ShopperItem.last.quantity == 2
+  end
+
   test "create should redirect if not an active shopper" do
     assert_no_difference("ShopperItem.count") do
       xhr :post, :create, { item_id: 1, quantity: 1 }

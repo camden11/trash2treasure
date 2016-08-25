@@ -2,9 +2,14 @@ class ShopperItemsController < ApplicationController
 
   def create
     if active_shopper? sale
-      @shopper_item = current_shopper(sale).shopper_items.build shopper_item_params
+      @shopper_item = ShopperItem.find_or_initialize_by(shopper_id: current_shopper(sale).id, item_id: shopper_item_params[:item_id])
+      @shopper_item.quantity += Integer(shopper_item_params[:quantity] || 0)
       @shopper_item.save
     end
+  end
+
+  def update
+
   end
 
   private

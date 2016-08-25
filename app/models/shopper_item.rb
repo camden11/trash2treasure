@@ -5,8 +5,10 @@ class ShopperItem < ActiveRecord::Base
 
   validates :shopper_id, presence: true
   validates :item_id, presence: true
-  validates :quantity, presence: true
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
   validate :same_sale
+
+  after_initialize { self.quantity ||= 0 }
 
   private
 
