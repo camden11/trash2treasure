@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def import
-    if count = Item.import_from_spreadsheet params[:file]
+    if count = Item.import_from_spreadsheet(params[:file])
       flash[:success] = "#{count} items created"
     else
       flash[:danger] = "Error reading file"

@@ -1,1 +1,1 @@
-= link_to "Cart (#{shopper.num_shopper_items})", shopper
+= link_to "Cart (#{shopper.try(:num_shopper_items) || 0})", shopper

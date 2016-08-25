@@ -9,7 +9,7 @@ item_1:
   name: "Blender"
   price: 20
   total_quantity: 50
-  current_quantity: 50
+  num_purchased: 0
   sale_id: 1
 
 item_2:
@@ -17,5 +17,5 @@ item_2:
   name: "Nunchucks"
   price: 20
   total_quantity: 50
-  current_quantity: 50
+  num_purchased: 0
   sale_id: 2
