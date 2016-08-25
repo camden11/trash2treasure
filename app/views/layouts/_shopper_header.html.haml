@@ -7,5 +7,5 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to @sale.name, @sale
-        %li
-          = link_to "Cart", current_shopper(@sale)
+        %li#shopper-header-cart
+          = render partial: 'layouts/shopper_header_cart', locals: { shopper: current_shopper(@sale) }

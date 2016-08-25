@@ -19,6 +19,6 @@ class ShopperItemsController < ApplicationController
   end
 
   def sale
-    Item.find(shopper_item_params[:item_id]).sale
+    @sale ||= Item.find(shopper_item_params[:item_id]).sale
   end
 end
