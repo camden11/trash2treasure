@@ -18,5 +18,9 @@ class Item < ActiveRecord::Base
   def organization
     self.sale.organization if self.sale
   end
+
+  def self.import_from_spreadsheet(file)
+    spreadsheet = Roo::Spreadsheet.open(file)
+  end
   
 end

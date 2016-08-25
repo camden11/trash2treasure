@@ -22,6 +22,14 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def import
+    if count = Item.import_from_spreadsheet params[:file]
+      flash[:success] = "#{count} items created"
+    else
+      flash[:danger] = "Error reading file"
+    end
+  end
+
   private
 
   def item_params
