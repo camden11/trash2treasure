@@ -6,6 +6,6 @@ class ShoppersController < ApplicationController
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
     redirect_to @sale unless current_shopper(@sale) == @shopper
-    @items = @shopper.items
+    @shopper_items = @shopper.shopper_items
   end
 end

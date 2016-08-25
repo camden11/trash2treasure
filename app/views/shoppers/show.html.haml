@@ -1,2 +1,20 @@
-- @items.each do |item|
-  = item.name
+.row.header-row
+  .col-xs-2
+    = image_tag @sale.preferred_image.url(:small), class: "profile-image"
+  .col-xs-10
+    .vertical-center.full-height
+      %h1 Your Shopping Cart
+
+.cart-shopper-items
+  - @shopper_items.each do |shopper_item|
+    .row.shopper-item-block
+      .col-xs-8
+        = shopper_item.name
+      .col-xs-4.text-right
+        = number_to_currency shopper_item.price
+
+.row.cart-price
+  .col-xs-6
+    Total:
+  .col-xs-6.text-right
+    = number_to_currency @shopper.total_price

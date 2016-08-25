@@ -1,5 +1,7 @@
 class ShopperItem < ActiveRecord::Base
 
+  include ActionView::Helpers::TextHelper
+
   belongs_to :item
   belongs_to :shopper
 
@@ -9,6 +11,14 @@ class ShopperItem < ActiveRecord::Base
   validate :same_sale
 
   after_initialize { self.quantity ||= 0 }
+
+  def name
+    pluralize self.quantity, self.item.name
+  end
+
+  def price
+    self.item.price * self.quantity
+  end
 
   private
 
