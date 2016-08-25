@@ -19,3 +19,10 @@ item_2:
   total_quantity: 50
   num_purchased: 0
   sale_id: 2
+
+item_3:
+  id: 3
+  name: "Lamp"
+  price: 8
+  num_purchased: 0
+  sale_id: 1

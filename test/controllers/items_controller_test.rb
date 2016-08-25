@@ -31,4 +31,24 @@ class ItemsControllerTest < ActionController::TestCase
     post :create, item: { name: "test" }
     assert_redirected_to 'redirect_url'
   end
+
+  test "import should create items from spreadsheet" do
+    file = ActionDispatch::Http::UploadedFile.new({
+      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx")
+    })
+    assert_difference("Item.count", 115) do
+      post :import, { sale_id: @sale.id, file: file }
+    end
+  end
+
+  test "import should not create items for someone else's sale" do
+    file = ActionDispatch::Http::UploadedFile.new({
+      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx")
+    })
+    request.env['HTTP_REFERER'] = 'redirect_url'
+    assert_no_difference("Item.count") do
+      post :import, { sale_id: sales(:sale_3), file: file }
+    end
+    assert_redirected_to 'redirect_url'
+  end
 end

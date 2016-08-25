@@ -7,4 +7,9 @@ class ShopperItemTest < ActiveSupport::TestCase
       ShopperItem.create(shopper_id: 1, item_id: 2)
     end
   end
+
+  test "name and quantity" do
+    assert shopper_items(:item_1).name == "3 Lamps"
+    assert shopper_items(:item_2).name == "1 Lamp"
+  end
 end

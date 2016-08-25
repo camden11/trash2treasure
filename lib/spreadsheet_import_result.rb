@@ -17,9 +17,9 @@ class SpreadsheetImportResult
   end
 
   def message
-    if @failures == 0
+    if @failures == 0 && @successes > 0
       "All #{@successes} items have been created"
-    elsif @successes > 0 && @failures > 0
+    elsif @successes > 0
       message = "#{@successes} items created successfully. Error creating: "
       @failed_items.each do |item|
         message = message + "-#{item} "

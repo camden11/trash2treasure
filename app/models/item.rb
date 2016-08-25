@@ -7,10 +7,9 @@ class Item < ActiveRecord::Base
   has_attached_file :image
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :price, presence: true
-  validates :total_quantity, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
   validates :num_purchased, presence: true
-  validates :units_per_sale, presence: true
+  validates :units_per_sale, presence: true, numericality: { greater_than: 0 }
   validates :sale_id, presence: true
 
   def organization
@@ -21,17 +20,21 @@ class Item < ActiveRecord::Base
     spreadsheet = Roo::Spreadsheet.open(file)
     result = SpreadsheetImportResult.new file
     headers_done = false
-    spreadsheet.each(spreadsheet_options) do |hash|
-      if headers_done
-        hash[:sale_id] = sale.id
-        if Item.find_or_create_by hash
-          result.success
+    begin
+      spreadsheet.each(spreadsheet_options) do |hash|
+        if headers_done
+          hash[:sale_id] = sale.id
+          item = Item.find_or_initialize_by hash
+          if item.save
+            result.success
+          else
+            result.failure hash[:name]
+          end
         else
-          result.failure hash[:name]
+          headers_done = true
         end
-      else
-        headers_done = true
       end
+    rescue
     end
     result
   end
