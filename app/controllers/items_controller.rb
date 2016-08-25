@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def import
     @sale = Sale.find params[:sale_id]
-    if sale.organization == current_organization
+    if @sale.organization == current_organization
       result = Item.import_from_spreadsheet(params[:file], @sale)
       flash[result.flash] = result.message
       redirect_to @sale

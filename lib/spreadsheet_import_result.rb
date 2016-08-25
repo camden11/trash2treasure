@@ -1,9 +1,9 @@
-class SpreadSheetImportResult
+class SpreadsheetImportResult
 
   def initialize(file)
     @successes = 0
     @failures = 0
-    @file_name = File.basename(file)
+    @file_name = File.basename(file.path)
     @failed_items = []
   end
 

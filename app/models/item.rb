@@ -19,13 +19,18 @@ class Item < ActiveRecord::Base
 
   def self.import_from_spreadsheet(file, sale)
     spreadsheet = Roo::Spreadsheet.open(file)
-    result = SpreadSheetImportResult.new
+    result = SpreadsheetImportResult.new file
+    headers_done = false
     spreadsheet.each(spreadsheet_options) do |hash|
-      hash[:sale_id] = sale.id
-      if Item.find_or_create_by hash
-        result.success
+      if headers_done
+        hash[:sale_id] = sale.id
+        if Item.find_or_create_by hash
+          result.success
+        else
+          result.failure hash[:name]
+        end
       else
-        result.failure hash[:name]
+        headers_done = true
       end
     end
     result
@@ -33,8 +38,8 @@ class Item < ActiveRecord::Base
 
   private
 
-  def spreadsheet_options
-    name: "name", price: "price", total_quantity: "total quantity", units_per_sale: "units per sale", category: "category"
+  def self.spreadsheet_options
+    { name: "name", price: "price", total_quantity: "total quantity", units_per_sale: "units per sale", category: "category" }
   end
 
   
