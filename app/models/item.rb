@@ -7,7 +7,6 @@ class Item < ActiveRecord::Base
   has_attached_file :image
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :code, length: { maximum: 4 }
   validates :price, presence: true
   validates :total_quantity, presence: true
   validates :current_quantity, presence: true

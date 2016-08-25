@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160825181133) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "units_per_sale"
-    t.integer  "num_purchased"
+    t.integer  "units_per_sale",                 default: 1
+    t.integer  "num_purchased",                  default: 0
     t.string   "category"
   end
 
