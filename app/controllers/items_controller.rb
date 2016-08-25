@@ -23,16 +23,19 @@ class ItemsController < ApplicationController
   end
 
   def import
-    if count = Item.import_from_spreadsheet(params[:file])
-      flash[:success] = "#{count} items created"
+    @sale = Sale.find params[:sale_id]
+    if sale.organization == current_organization
+      result = Item.import_from_spreadsheet(params[:file], @sale)
+      flash[result.flash] = result.message
+      redirect_to @sale
     else
-      flash[:danger] = "Error reading file"
+      redirect_to :back
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :code, :total_quantity, :sale_id)
+    params.require(:item).permit(:name, :price, :total_quantity, :sale_id)
   end
 end

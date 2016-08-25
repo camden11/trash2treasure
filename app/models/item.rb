@@ -17,8 +17,25 @@ class Item < ActiveRecord::Base
     self.sale.organization if self.sale
   end
 
-  def self.import_from_spreadsheet(file)
+  def self.import_from_spreadsheet(file, sale)
     spreadsheet = Roo::Spreadsheet.open(file)
+    result = SpreadSheetImportResult.new
+    spreadsheet.each(spreadsheet_options) do |hash|
+      hash[:sale_id] = sale.id
+      if Item.find_or_create_by hash
+        result.success
+      else
+        result.failure hash[:name]
+      end
+    end
+    result
   end
+
+  private
+
+  def spreadsheet_options
+    name: "name", price: "price", total_quantity: "total quantity", units_per_sale: "units per sale", category: "category"
+  end
+
   
 end
