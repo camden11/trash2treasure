@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def index
-    redirect_to :back
+    redirect_to :back unless request.xhr?
+    @sale = Sale.find(params[:sale_id])
+    @items = Item.search(params[:sale_id], params[:query])
   end
 
   def create
@@ -12,8 +14,7 @@ class ItemsController < ApplicationController
       flash[:success] = "Item created"
       redirect_to @item.sale
     elsif @item.sale
-      @sale = @item.sale
-      render 'sales/show'
+      redirect_to @item.sale
     else
       redirect_to :back
     end

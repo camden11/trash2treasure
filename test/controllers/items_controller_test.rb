@@ -23,7 +23,7 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "create should render sales/show for invalid data" do
     post :create, item: { sale_id: @sale.id }
-    assert_template 'sales/show'
+    assert_redirected_to @sale
   end
 
   test "create should redirect back when request made from outside sale page" do 

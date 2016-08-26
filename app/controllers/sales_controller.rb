@@ -10,6 +10,7 @@ class SalesController < ApplicationController
     @sale = Sale.find(params[:id])
     new_shopper @sale
     @item = Item.new if @sale.organization == current_organization
+    @items = @sale.items
   end
 
   def new

@@ -39,8 +39,8 @@ class Item < ActiveRecord::Base
     result
   end
 
-  def self.search(query)
-    where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+  def self.search(sale_id, query)
+    where(sale_id: sale_id).where("LOWER(name) LIKE ?", "%#{query.downcase}%")
   end
 
   private

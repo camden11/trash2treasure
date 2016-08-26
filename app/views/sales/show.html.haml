@@ -5,23 +5,11 @@
     .vertical-center.full-height
       %h1= @sale.name
 
-.row.item-search
-  .col-xs-12
-    .input-group
-      %input.form-control{ type: "text", placeholder: "Search" }
-      %span.input-group-btn
-        %button.btn.btn-default{ type: "button" }
-          Search
+#item-search
+  = render partial: 'sales/item_search_bar'
 
-.row.sale-items
-  - @sale.items.each do |item|
-    .col-sm-6.col-lg-4
-      = link_to(shopper_items_path(item_id: item.id, quantity: 1), method: :post, remote: true, class: "item-block") do
-        .row.vertical-center
-          .col-xs-8
-            = item.name
-          .col-xs-4.text-right
-            = number_to_currency item.price
+#sale-items
+  = render partial: 'sales/sale_items', locals: { items: @items }
 
 - if @item
   = render partial: 'sales/item_form'
