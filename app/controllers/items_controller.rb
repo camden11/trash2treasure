@@ -3,9 +3,12 @@ class ItemsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def index
-    redirect_to :back unless request.xhr?
-    @sale = Sale.find(params[:sale_id])
-    @items = Item.search(params[:sale_id], params[:query])
+    unless request.xhr?
+      redirect_to :back 
+    else
+      @sale = Sale.find(params[:sale_id])
+      @items = Item.search(params[:sale_id], params[:query])
+    end
   end
 
   def create

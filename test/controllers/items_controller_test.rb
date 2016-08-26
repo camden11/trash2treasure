@@ -13,6 +13,11 @@ class ItemsControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to 'redirect_url'
   end
+
+  test "index should search for xhr request" do
+    xhr :get, :index, { sale_id: 1, query: "ble" }
+    assert_response :success
+  end
   
   test "create should create item for valid item" do
     assert_difference('Item.count') do

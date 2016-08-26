@@ -20,4 +20,9 @@ class ItemTest < ActiveSupport::TestCase
     assert result.flash == :warning
     assert result.message.include? "100 items created successfully"
   end
+
+  test "search" do
+    assert Item.search(sales(:sale_1), "1").to_a.include? items(:item_1)
+    assert Item.search(sales(:sale_1), "La").to_a.include? items(:item_3)
+  end
 end
