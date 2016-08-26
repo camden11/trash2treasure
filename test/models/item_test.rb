@@ -3,7 +3,7 @@ require 'test_helper'
 class ItemTest < ActiveSupport::TestCase
   
   test "import from spreadsheets handles bad data" do
-    file = File.new("test/fixtures/files/bad_data_test.xlsx")
+    file = "test/fixtures/files/bad_data_test.xlsx"
     sale = sales(:sale_1)
     result = Item.import_from_spreadsheet(file, sale)
     assert result.flash == :danger
@@ -11,7 +11,7 @@ class ItemTest < ActiveSupport::TestCase
   end
 
   test "import from spreadsheets handles partially bad data" do
-    file = File.new("test/fixtures/files/ok_data_test.xlsx")
+    file = "test/fixtures/files/ok_data_test.xlsx"
     sale = sales(:sale_1)
     result = nil
     assert_difference("Item.count", 100) do
