@@ -17,3 +17,6 @@
 
 # Ignore code coverage
 /coverage
+
+# Ignore application configuration
+/config/application.yml

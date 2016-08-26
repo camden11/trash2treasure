@@ -10,9 +10,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "4.3"
+gem 'aws-sdk', '< 2.0'
 gem 'roo', '~> 2.4.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'figaro'
+gem 'remote_table'
 
 group :development, :test do
   gem 'sqlite3'
@@ -29,6 +32,7 @@ end
 
 group :production do
   gem 'pg', '0.18.4'
+  gem 'rails_12factor'
 end
 
 

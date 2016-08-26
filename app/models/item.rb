@@ -17,7 +17,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.import_from_spreadsheet(file, sale)
-    spreadsheet = Roo::Spreadsheet.open(file)
+    spreadsheet = Roo::Spreadsheet.open(file.to_s)
     result = SpreadsheetImportResult.new file
     headers_done = false
     begin
