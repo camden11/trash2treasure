@@ -3,7 +3,7 @@
     = form_tag items_path, method: :get, remote: true do
       .input-group
         = text_field_tag :query, params[:query], { placeholder: "Search", id: "search-items", class: "form-control" }
-        = hidden_field_tag :sale_id, @sale.id
+        = hidden_field_tag :sale_id, @sale.id, { id: "search-sale-id"}
         %span.input-group-btn
           %button.btn.btn-default{ type: "submit" }
             Search

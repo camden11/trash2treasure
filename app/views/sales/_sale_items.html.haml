@@ -7,3 +7,5 @@
             = item.name
           .col-xs-4.text-right
             = number_to_currency item.price
+  - if items.empty?
+    %h3.no-results No results found

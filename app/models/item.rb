@@ -40,7 +40,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.search(sale_id, query)
-    where(sale_id: sale_id).where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+    where(sale_id: sale_id).where("LOWER(name) LIKE ?", "%#{query.downcase}%") + where(id: query)
   end
 
   private
