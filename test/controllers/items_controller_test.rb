@@ -34,7 +34,8 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "import should create items from spreadsheet" do
     file = ActionDispatch::Http::UploadedFile.new({
-      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx")
+      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx"),
+      filename: "Users/Camden/code/trash2treasure/test/fixtures/files/t2t_list.xlsx"
     })
     assert_difference("Item.count", 115) do
       post :import, { sale_id: @sale.id, file: file }
@@ -43,7 +44,8 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "import should not create items for someone else's sale" do
     file = ActionDispatch::Http::UploadedFile.new({
-      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx")
+      :tempfile => File.new("test/fixtures/files/t2t_list.xlsx"),
+      filename: "Users/Camden/code/trash2treasure/test/fixtures/files/t2t_list.xlsx"
     })
     request.env['HTTP_REFERER'] = 'redirect_url'
     assert_no_difference("Item.count") do

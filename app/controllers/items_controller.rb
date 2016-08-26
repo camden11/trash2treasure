@@ -24,8 +24,10 @@ class ItemsController < ApplicationController
 
   def import
     @sale = Sale.find params[:sale_id]
+    obj = S3_BUCKET.objects[params[:file].original_filename]
+    obj.write(file: params[:file], acl: :public_read)
     if @sale.organization == current_organization
-      result = Item.import_from_spreadsheet(params[:file], @sale)
+      result = Item.import_from_spreadsheet(obj.public_url, @sale)
       flash[result.flash] = result.message
       redirect_to @sale
     else
