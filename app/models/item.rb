@@ -39,6 +39,10 @@ class Item < ActiveRecord::Base
     result
   end
 
+  def self.search(query)
+    where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+  end
+
   private
 
   def self.spreadsheet_options
