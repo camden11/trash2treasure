@@ -1,11 +1,18 @@
-%nav.navbar.navbar-default.header
-  .container-fluid
-    .navbar-header
-      = link_to "Trash2Treasure", root_url, class: "navbar-brand"
-
+%nav.navbar.navbar-fixed-top.hidden-xs.header
+  .container
     .collapse.navbar-collapse#website-header-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to @sale.name, @sale
-        %li#shopper-header-cart
+        %li.shopper-header-cart
           = render partial: 'layouts/shopper_header_cart', locals: { shopper: current_shopper(@sale) }
+
+%nav.navbar.navbar-fixed-bottom.visible-xs.header
+  .container
+    %ul.bottom-nav
+      %li
+        = link_to "Sale", @sale
+      %li.shopper-header-cart
+        = render partial: 'layouts/shopper_header_cart', locals: { shopper: current_shopper(@sale) }
+
+     
