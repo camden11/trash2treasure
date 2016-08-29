@@ -1,7 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 quantity = 1
+active_id = -1
 
 $itemNameField  = (base) ->
   $('.item-' + base.parents('.item-block').data("item-id"))
@@ -26,19 +24,9 @@ removeAllItemQuantity = ->
   $('.item-price').each ->
     $itemPriceField($(this)).html("$" + baseItemPrice($(this)).toFixed(2).toString())
 
-$(document).keyup ->
-  query = $('#search-items').val()
-  sale_id = $('#search-sale-id').val()
-  $.ajax
-    type: 'GET'
-    url: '/items'
-    data:
-      query: query
-      sale_id: sale_id
-  return
-
 # Initial click
 $('.item-block-top').click ->
+  console.log("yo")
   quantity = 1
   $('.item-block').removeClass 'item-block-active'
   removeAllItemQuantity()

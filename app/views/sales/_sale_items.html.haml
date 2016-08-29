@@ -3,3 +3,5 @@
     = render partial: 'items/item_block', locals: { item: item }
   - if items.empty?
     %h3.no-results No results found
+
+= javascript_include_tag 'items'
