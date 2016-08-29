@@ -1,0 +1,15 @@
+.row.shopper-item-block
+  .col-xs-8
+    = shopper_item.name
+  .col-xs-4.text-right
+    = number_to_currency shopper_item.price
+.edit-shopper-item-block
+  .shopper-item-remove.vertical-center
+    .text-center
+      Remove
+  .shopper-item-minus.vertical-center
+    .text-center
+      = "-"
+  .shopper-item-plus.vertical-center
+    .text-center
+      = "+"

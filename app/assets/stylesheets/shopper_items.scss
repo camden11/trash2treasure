@@ -2,3 +2,40 @@
   font-size: 20px;
   margin-top: 10px;
 }
+
+.edit-shopper-item-block {
+  height: 0px;
+  width: 100%;
+  color: white;
+  margin-top: 5px;
+  overflow: hidden;
+  transition: height .25s, margin-bottom .25s;
+
+  .shopper-item-remove, .shopper-item-minus, .shopper-item-plus {
+    width: 33.3333333%;
+    height: 100%;
+    float: left;
+
+    .text-center {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .shopper-item-remove {
+    background-color: #D0021B;
+  }
+
+  .shopper-item-minus {
+    background-color: #C0C0C0;
+  }
+
+  .shopper-item-plus {
+    background-color: #747474;
+  }
+}
+
+.edit-shopper-item-block-active {
+  height: 40px;
+  margin-bottom: 20px;
+}

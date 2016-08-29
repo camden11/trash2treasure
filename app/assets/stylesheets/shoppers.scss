@@ -6,3 +6,35 @@
   margin-top: 30px;
   font-size: 32px;
 }
+
+.edit-cart {
+  margin-top: 20px
+}
+
+.checkout {
+  margin-top: 10px;
+}
+
+.edit-cart, .checkout {
+  height: 50px;
+  font-size: 20px;
+}
+
+.edit-button {
+  background-color: $gray;
+}
+
+.checkout-button {
+  background-color: #7ED321;
+}
+
+.edit-button, .checkout-button {
+  width: 100%;
+  height: 100%;
+  color: white;
+
+  .text-center {
+    display: block;
+    width: 100%;
+  }
+}

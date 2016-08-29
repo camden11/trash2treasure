@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+editing = false
+
+$('.edit-cart').click ->
+  $('.edit-shopper-item-block').toggleClass('edit-shopper-item-block-active')
+  editing = not editing
+  if editing
+    $('.edit-cart-text').html("Done")
+  else
+    $('.edit-cart-text').html("Edit Cart")

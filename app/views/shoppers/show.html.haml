@@ -7,14 +7,24 @@
 
 .cart-shopper-items
   - @shopper_items.each do |shopper_item|
-    .row.shopper-item-block
-      .col-xs-8
-        = shopper_item.name
-      .col-xs-4.text-right
-        = number_to_currency shopper_item.price
+    = render partial: "shopper_items/shopper_item_block", locals: { shopper_item: shopper_item }
 
 .row.cart-price
   .col-xs-6
     Total:
   .col-xs-6.text-right
     = number_to_currency @shopper.total_price
+
+.row.edit-cart
+  .col-xs-12
+    .edit-button.vertical-center
+      .text-center.edit-cart-text
+        Edit Cart
+
+.row.checkout
+  .col-xs-12
+    .checkout-button.vertical-center
+      .text-center
+        Checkout
+
+= javascript_include_tag "shopper_items"
