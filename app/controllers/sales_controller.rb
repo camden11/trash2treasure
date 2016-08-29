@@ -8,6 +8,9 @@ class SalesController < ApplicationController
 
   def show
     @sale = Sale.find(params[:id])
+    if active_shopper?(@sale) && request.xhr?
+      @active_item = params[:item_id]
+    end
     new_shopper @sale
     @item = Item.new if @sale.organization == current_organization
     @items = @sale.items

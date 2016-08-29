@@ -1,0 +1,23 @@
+.col-sm-6.col-lg-4
+  .item-block{ data: { item_id: item.id, item_name: item.name, item_price: item.price } }
+    .item-block-top
+      .row.vertical-center
+        .col-xs-8.item-name{ class: item_class_name(item) }
+          = item.name
+        .col-xs-4.text-right.item-price{ class: item_price_class_name(item) }
+          = number_to_currency item.price
+    .item-block-middle
+      .row
+        .col-xs-6.item-block-increment.minus.vertical-center
+          .text-center
+            = "-"
+        .col-xs-6.item-block-increment.plus.vertical-center
+          .text-center
+            = "+"
+    .item-block-bottom
+      .vertical-center
+        .text-center
+          Confirm
+
+
+/ = link_to(shopper_items_path(item_id: item.id, quantity: 1), method: :post, remote: true, class: "item-block") do

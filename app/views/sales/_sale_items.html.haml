@@ -1,11 +1,5 @@
 .row.sale-items
   - items.each do |item|
-    .col-sm-6.col-lg-4
-      = link_to(shopper_items_path(item_id: item.id, quantity: 1), method: :post, remote: true, class: "item-block") do
-        .row.vertical-center
-          .col-xs-8
-            = item.name
-          .col-xs-4.text-right
-            = number_to_currency item.price
+    = render partial: 'items/item_block', locals: { item: item }
   - if items.empty?
     %h3.no-results No results found

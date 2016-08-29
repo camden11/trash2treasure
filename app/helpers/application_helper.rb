@@ -6,4 +6,11 @@ module ApplicationHelper
     classes
   end
 
+  def item_class_name(item)
+    "item-#{item.id}"
+  end
+
+    def item_price_class_name(item)
+    "item-price-#{item.id}"
+  end
 end
