@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825181133) do
+ActiveRecord::Schema.define(version: 20160829212645) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(version: 20160825181133) do
   add_index "shopper_items", ["shopper_id"], name: "index_shopper_items_on_shopper_id"
 
   create_table "shoppers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "sale_id"
+    t.boolean  "ready_for_checkout"
   end
 
   create_table "users", force: :cascade do |t|
