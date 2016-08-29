@@ -29,6 +29,7 @@
   .text-center {
     display: block;
     width: 100%;
+    color: white;
   }
 }
 
@@ -38,4 +39,30 @@
 
 .checkout-button-active {
   background-color: #7ED321;
+}
+
+body.shoppers.checkout {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  .shopper-checkout-code-block {
+    width: 100%;
+    text-align: center;
+
+    .shopper-checkout-code {
+      font-size: 72px;
+    }
+
+    .shopper-checkout-small-text{
+      font-size: 14px;
+    }
+
+    .btn {
+      color: white;
+      background-color: $gray;
+      border-radius: 0;
+      margin-top: 10px;
+    }
+  }
 }

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :create, :import] do
     collection { post :import }
   end
-  resources :shoppers, only: [:show]
+  resources :shoppers, only: [:show, :update]
+  get 'shoppers/:id/checkout' => "shoppers#checkout"
   resources :shopper_items, only: [:create, :update, :destroy]
 end

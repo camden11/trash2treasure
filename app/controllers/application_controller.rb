@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def sale_nav
     @sale_nav = true
   end
+
+  def no_nav
+    @no_nav = true
+  end
 end

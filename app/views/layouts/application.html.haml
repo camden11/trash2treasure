@@ -12,7 +12,7 @@
         = render partial: 'layouts/header'
       - elsif @sale_nav
         = render partial: 'layouts/shopper_header'
-      - else
+      - elsif !@no_nav
         = render partial: 'layouts/website_header'
         
       - flash.each do |message_type, message|
