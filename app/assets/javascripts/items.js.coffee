@@ -48,3 +48,14 @@ $('.minus').click ->
   else
     incrementItemQuantity $(this)
   return
+
+$('.item-block-bottom').click ->
+  $.ajax
+    type: 'POST'
+    url: '/shopper_items'
+    data:
+      item_id: $(this).parents('.item-block').data("item-id")
+      quantity: quantity
+  quantity = 1
+  $('.item-block').removeClass 'item-block-active'
+  removeAllItemQuantity()
