@@ -1,0 +1,6 @@
+- if shopper.shopper_items.any?
+  - shopper.shopper_items.each do |shopper_item|
+    %div{ class: shopper_item_class_name(shopper_item) }
+      = render partial: "shopper_items/shopper_item_block", locals: { shopper_item: shopper_item, edit: edit }
+- else
+  Your cart is empty

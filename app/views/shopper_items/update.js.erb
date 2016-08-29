@@ -1,0 +1,3 @@
+$('.shopper-item-<%= @shopper_item.id %>').html("<%= escape_javascript(render partial: 'shopper_items/shopper_item_block', locals: { shopper_item: @shopper_item, edit: true }).html_safe %>");
+$('.shopper-header-cart').html("<%= escape_javascript(render partial: 'layouts/shopper_header_cart', locals: { shopper: @shopper_item.shopper }).html_safe %>");
+$('.shopper-total-price').html("<%= escape_javascript(render partial: 'shoppers/total_price', locals: { shopper: @shopper_item.shopper }).html_safe %>");

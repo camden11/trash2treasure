@@ -1,6 +1,6 @@
 editing = false
 
-$('.edit-cart').click ->
+$('.edit-button-active').click ->
   $('.edit-shopper-item-block').toggleClass('edit-shopper-item-block-active')
   editing = not editing
   if editing

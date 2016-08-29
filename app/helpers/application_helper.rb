@@ -10,7 +10,11 @@ module ApplicationHelper
     "item-#{item.id}"
   end
 
-    def item_price_class_name(item)
+  def item_price_class_name(item)
     "item-price-#{item.id}"
+  end
+
+  def shopper_item_class_name(shopper_item)
+    "shopper-item-#{shopper_item.id}"
   end
 end

@@ -16,9 +16,10 @@
     height: 100%;
     float: left;
 
-    .text-center {
+    a.text-center {
       display: block;
       width: 100%;
+      color: white;
     }
   }
 
@@ -36,6 +37,6 @@
 }
 
 .edit-shopper-item-block-active {
-  height: 40px;
+  height: 25px;
   margin-bottom: 20px;
 }

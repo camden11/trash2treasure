@@ -1,15 +1,13 @@
-.row.shopper-item-block
-  .col-xs-8
-    = shopper_item.name
-  .col-xs-4.text-right
-    = number_to_currency shopper_item.price
-.edit-shopper-item-block
-  .shopper-item-remove.vertical-center
-    .text-center
-      Remove
-  .shopper-item-minus.vertical-center
-    .text-center
-      = "-"
-  .shopper-item-plus.vertical-center
-    .text-center
-      = "+"
+- if shopper_item  
+  .row.shopper-item-block
+    .col-xs-8
+      = shopper_item.name
+    .col-xs-4.text-right
+      = number_to_currency shopper_item.price
+  .edit-shopper-item-block{ class: ("edit-shopper-item-block-active" if edit) }
+    .shopper-item-remove.vertical-center
+      = link_to "Remove", shopper_item_path(shopper_item), method: :delete, remote: true, class: "text-center"
+    .shopper-item-minus.vertical-center
+      = link_to "-", shopper_item_path(shopper_item, quantity: shopper_item.quantity - 1), method: :put, remote: true, class: "text-center"
+    .shopper-item-plus.vertical-center
+      = link_to "+", shopper_item_path(shopper_item, quantity: shopper_item.quantity + 1), method: :put, remote: true, class: "text-center"

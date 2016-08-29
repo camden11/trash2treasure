@@ -20,6 +20,10 @@ class ShopperItem < ActiveRecord::Base
     self.item.price * self.quantity
   end
 
+  def sibling_items
+    self.shopper.shopper_items
+  end
+
   private
 
   def same_sale

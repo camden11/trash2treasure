@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     collection { post :import }
   end
   resources :shoppers, only: [:show]
-  resources :shopper_items, only: [:create, :destroy]
+  resources :shopper_items, only: [:create, :update, :destroy]
 end

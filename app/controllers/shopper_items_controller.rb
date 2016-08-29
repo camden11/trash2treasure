@@ -9,7 +9,22 @@ class ShopperItemsController < ApplicationController
   end
 
   def update
+    @shopper_item = ShopperItem.find(params[:id])
+    @shopper_item.quantity = params[:quantity]
+    if @shopper_item.save
+      render 'update'
+    else
+      render nothing: true
+    end
+  end
 
+  def destroy
+    @shopper_item = ShopperItem.find(params[:id])
+    if @shopper_item.destroy
+      render 'destroy'
+    else
+      render nothing: true
+    end
   end
 
   private
