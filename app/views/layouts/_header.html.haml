@@ -1,11 +1,10 @@
 %nav.navbar.navbar-fixed-top.header
   .container
-    .navbar-header
-      = link_to current_organization.preferred_name, current_organization, class: "navbar-brand"
-
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to "Home", current_organization
+          = link_to current_organization.primary_sale.name, current_organization.primary_sale
+        %li
+          = link_to "Checkout", shoppers_path(sale_id: current_organization.primary_sale.id)
         %li
           = link_to "Log out", logout_path, method: "delete"

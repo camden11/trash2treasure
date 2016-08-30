@@ -14,6 +14,10 @@ class Organization < ActiveRecord::Base
     self.display_name || self.name
   end
 
+  def primary_sale
+    self.sales.last
+  end
+
   private
 
   def generate_join_code

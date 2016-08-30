@@ -4,4 +4,4 @@
   - if items.empty?
     %h3.no-results No results found
 
-= javascript_include_tag 'items'
+= javascript_include_tag 'items' if active_shopper? @sale

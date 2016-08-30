@@ -1,0 +1,3 @@
+.col-xs-12
+  .checkout-button.vertical-center{ class: ("checkout-button-active" if shopper.ready_for_checkout) }
+    = link_to "Confirm Checkout", shopper_path(shopper, ready_for_checkout: true), method: :put, class: "text-center"

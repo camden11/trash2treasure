@@ -23,7 +23,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post users_path, user: valid_signup_info
     end
     follow_redirect!
-    assert_template 'organizations/show'
+    # assert_template 'organizations/show'
+    assert_template 'sales/show'
     assert logged_in?
   end
 end

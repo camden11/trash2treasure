@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       log_in user
       remember user
       delete_shoppers
-      redirect_back_or user.organization
+      redirect_back_or user.organization.sales.last
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

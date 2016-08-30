@@ -1,0 +1,10 @@
+.row.header-row
+  .col-xs-2
+    = image_tag @sale.preferred_image.url(:small), class: "profile-image"
+  .col-xs-10
+    .vertical-center.full-height
+      %h1 Checkout
+
+.row.checked-out-shoppers
+  - @shoppers.each do |shopper|
+    = render partial: "shopper_block", locals: { shopper: shopper }

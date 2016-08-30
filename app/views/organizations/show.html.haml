@@ -16,9 +16,9 @@
               = link_to sale.name, sale
             .col-sm-6.gray
               = sale.start_date
-      - if current_organization == @organization
-        %li
-          = link_to "Create new sale", new_sale_path
+      / - if current_organization == @organization
+      /   %li
+      /     = link_to "Create new sale", new_sale_path
 
   .col-md-6.organization-list
     %h2 Members
@@ -28,8 +28,8 @@
           .row
             .col-sm-6
               = user.name
-            .col-sm-6.gray
-              Position
-      - if current_organization == @organization
-        %li
-          = link_to "Invite new users", "#"
+            / .col-sm-6.gray
+            /   Position
+      / - if current_organization == @organization
+      /   %li
+      /     = link_to "Invite new users", "#"

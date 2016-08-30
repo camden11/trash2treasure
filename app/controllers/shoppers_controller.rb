@@ -2,11 +2,18 @@ class ShoppersController < ApplicationController
 
   before_action :sale_nav, only: [:show]
 
+  def index
+    @sale = Sale.find(params[:sale_id])
+    @shoppers = Shopper.where(sale_id: params[:sale_id]).where(ready_for_checkout: true)
+  end
+
   def show
     @shopper = Shopper.find params[:id]
-    redirect_to action: :checkout if @shopper.ready_for_checkout
     @sale = @shopper.sale
-    redirect_to @sale unless current_shopper(@sale) == @shopper
+    if !current_organization == @sale.organization
+      redirect_to @sale unless current_shopper(@sale) == @shopper
+      redirect_to action: :checkout if @shopper.ready_for_checkout
+    end
     @shopper_items = @shopper.shopper_items
   end
 

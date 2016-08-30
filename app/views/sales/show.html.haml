@@ -9,7 +9,7 @@
   = render partial: 'sales/item_search_bar'
 
 #sale-items
-  = render partial: 'sales/sale_items', locals: { items: @items }
+  = render partial: 'sales/sale_items', locals: { items: @items, sale: @sale }
 
 - if @item
   = render partial: 'sales/item_form'

@@ -21,9 +21,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, session: { email: @user.email, password: 'test123' }
     assert logged_in?
-    assert_redirected_to @user.organization
+    # assert_redirected_to @user.organization
+    assert_redirected_to @user.organization.primary_sale
     follow_redirect!
-    assert_template 'organizations/show'
+    # assert_template 'organizations/show'
+    assert_template 'sales/show'
     delete logout_path
     assert_not logged_in?
     assert_redirected_to root_url
