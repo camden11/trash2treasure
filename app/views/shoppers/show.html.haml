@@ -1,21 +1,22 @@
-.row.header-row
-  .col-xs-2
-    = image_tag @sale.preferred_image.url(:small), class: "profile-image"
-  .col-xs-10
-    .vertical-center.full-height
-      %h1 Your Shopping Cart
+.cart  
+  .row.header-row
+    .col-xs-2
+      = image_tag @sale.preferred_image.url(:small), class: "profile-image"
+    .col-xs-10
+      .vertical-center.full-height
+        %h1 Your Shopping Cart
 
-.cart-shopper-items
-  = render partial: "shoppers/cart_shopper_items", locals: { shopper: @shopper, edit: false }
+  .cart-shopper-items
+    = render partial: "shoppers/cart_shopper_items", locals: { shopper: @shopper, edit: false }
 
-.row.cart-price
-  .col-xs-6
-    Total:
-  .col-xs-6.text-right.shopper-total-price
-    = render partial: "shoppers/total_price", locals: { shopper: @shopper }
+  .row.cart-price
+    .col-xs-6
+      Total:
+    .col-xs-6.text-right.shopper-total-price
+      = render partial: "shoppers/total_price", locals: { shopper: @shopper }
 
-.row.edit-cart
-  = render partial: "shoppers/edit_cart_button", locals: { shopper: @shopper }
+  .row.edit-cart
+    = render partial: "shoppers/edit_cart_button", locals: { shopper: @shopper }
 
-.row.checkout
-  = render partial: "shoppers/checkout_button", locals: { shopper: @shopper }
+  .row.checkout
+    = render partial: "shoppers/checkout_button", locals: { shopper: @shopper }
