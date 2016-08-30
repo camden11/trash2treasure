@@ -1,0 +1,13 @@
+(function() {
+  $('.edit-button-active').click(function() {
+    $('.edit-shopper-item-block').toggleClass('edit-shopper-item-block-active');
+    if ($('.edit-cart-text').attr("data-editing") === "true") {
+      $('.edit-cart-text').html("Edit Cart");
+      return $('.edit-cart-text').attr("data-editing", "false");
+    } else {
+      $('.edit-cart-text').html("Done");
+      return $('.edit-cart-text').attr("data-editing", "true");
+    }
+  });
+
+}).call(this);
