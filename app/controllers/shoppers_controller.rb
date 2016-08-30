@@ -11,10 +11,10 @@ class ShoppersController < ApplicationController
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
     if current_organization != @sale.organization
-      redirect_to @sale unless current_shopper(@sale) == @shopper
+      redirect_to @sale && return unless current_shopper(@sale) == @shopper
       redirect_to action: :checkout if @shopper.ready_for_checkout
     else
-      redirect_to action: :index, sale_id: @sale.id
+      redirect_to action: :index, sale_id: @sale.id unless @shopper.ready_for_checkout
     end
     @shopper_items = @shopper.shopper_items
   end
@@ -39,7 +39,7 @@ class ShoppersController < ApplicationController
     @shopper.ready_for_checkout = params[:ready_for_checkout]
     if @shopper.save && @shopper.ready_for_checkout
       redirect_to action: :checkout
-    else
+    elsif
       redirect_to @shopper
     end
   end
@@ -47,6 +47,10 @@ class ShoppersController < ApplicationController
   def checkout
     no_nav
     @shopper = Shopper.find params[:id]
+    if current_shopper(@shopper.sale) != @shopper
+      redirect_to @shopper.sale
+      return
+    end
     redirect_to @shopper unless @shopper.ready_for_checkout
   end
 
