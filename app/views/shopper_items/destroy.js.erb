@@ -3,3 +3,6 @@ $('.shopper-header-cart').html("<%= escape_javascript(render partial: 'layouts/s
 $('.shopper-total-price').html("<%= escape_javascript(render partial: 'shoppers/total_price', locals: { shopper: @shopper_item.shopper }).html_safe %>");
 $('.edit-cart').html("<%= escape_javascript(render partial: 'shoppers/edit_cart_button', locals: { shopper: @shopper_item.shopper }).html_safe %>");
 $('.checkout').html("<%= escape_javascript(render partial: 'shoppers/checkout_button', locals: { shopper: @shopper_item.shopper }).html_safe %>");
+
+$('.edit-cart-text').html("Done")
+$('.edit-cart-text').attr("data-editing", "true")

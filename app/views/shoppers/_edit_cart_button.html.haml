@@ -1,4 +1,6 @@
 .col-xs-12
   .edit-button.vertical-center{ class: ("edit-button-active" if shopper.shopper_items.any?) }
-    .text-center.edit-cart-text
+    .text-center.edit-cart-text{ data: { editing: "false" } }
       Edit Cart
+
+= javascript_include_tag "shopper_items"
