@@ -4,7 +4,7 @@ class ShoppersController < ApplicationController
 
   def index
     @sale = Sale.find(params[:sale_id])
-    @shoppers = Shopper.where(sale_id: params[:sale_id]).where(ready_for_checkout: true)
+    @shoppers = Shopper.where(sale_id: params[:sale_id]).where(ready_for_checkout: true).where(checked_out: nil)
   end
 
   def show
@@ -32,5 +32,15 @@ class ShoppersController < ApplicationController
     no_nav
     @shopper = Shopper.find params[:id]
     redirect_to @shopper unless @shopper.ready_for_checkout
+  end
+
+  def confirm_checkout
+    @shopper = Shopper.find params[:id]
+    if @shopper.confirm_checkout
+      flash[:success] = "Shopper ##{@shopper.id} has been checked out"
+    else 
+      flash[:danger] = "Error checking out shopper"
+    end
+    redirect_to action: :index, sale_id: @shopper.sale.id
   end
 end

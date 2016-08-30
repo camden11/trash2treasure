@@ -19,4 +19,14 @@ class Shopper < ActiveRecord::Base
     end
     price
   end
+
+  def confirm_checkout
+    self.shopper_items.each do |shopper_item|
+      item = shopper_item.item
+      item.num_purchased += shopper_item.quantity
+      item.save
+    end
+    self.checked_out = true
+    self.save
+  end
 end

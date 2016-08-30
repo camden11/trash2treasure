@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   end
   resources :shoppers, only: [:index, :show, :update]
   get 'shoppers/:id/checkout' => "shoppers#checkout"
+  put 'shoppers/:id/confirm_checkout' => "shoppers#confirm_checkout", as: :confirm_shopper_checkout
   resources :shopper_items, only: [:create, :update, :destroy]
 end
