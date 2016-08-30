@@ -10,11 +10,27 @@ class ShoppersController < ApplicationController
   def show
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
-    if !current_organization == @sale.organization
+    if current_organization != @sale.organization
       redirect_to @sale unless current_shopper(@sale) == @shopper
       redirect_to action: :checkout if @shopper.ready_for_checkout
+    else
+      redirect_to action: :index, sale_id: @sale.id
     end
     @shopper_items = @shopper.shopper_items
+  end
+
+  def search
+    if @shopper = Shopper.find_by(id: params[:shopper_id], ready_for_checkout: true)
+      @sale = @shopper.sale
+      if current_organization != @sale.organization
+        redirect_to @sale
+      end
+      @shopper_items = @shopper.shopper_items
+      render 'show'
+    else
+      flash[:danger] = "Shopper not found"
+      redirect_to :back
+    end
   end
 
   def update

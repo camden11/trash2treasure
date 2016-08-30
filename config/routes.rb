@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :create, :import] do
     collection { post :import }
   end
-  resources :shoppers, only: [:index, :show, :update]
+
+  get 'shoppers/search' => "shoppers#search", as: :search_shopper
   get 'shoppers/:id/checkout' => "shoppers#checkout"
   put 'shoppers/:id/confirm_checkout' => "shoppers#confirm_checkout", as: :confirm_shopper_checkout
+  resources :shoppers, only: [:index, :show, :update]
+  
   resources :shopper_items, only: [:create, :update, :destroy]
 end

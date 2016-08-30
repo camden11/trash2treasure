@@ -5,6 +5,15 @@
     .vertical-center.full-height
       %h1 Checkout
 
+.row.shopper-search
+  .col-xs-12
+    = form_tag({ controller: 'shoppers', action: 'search'}, method: :get) do
+      .input-group
+        = text_field_tag :shopper_id, params[:shopper_id], { placeholder: "Shopper ID", id: "search-items", class: "form-control" }
+        %span.input-group-btn
+          %button.btn.btn-default{ type: "submit" }
+            Find
+
 .row.checked-out-shoppers
   - @shoppers.each do |shopper|
     = render partial: "shopper_block", locals: { shopper: shopper }
