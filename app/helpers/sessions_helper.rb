@@ -26,6 +26,10 @@ module SessionsHelper
     current_user.try :organization
   end
 
+  def belongs_to_current_organization?(sale)
+    @sale.organization == current_organization
+  end
+
   def logged_in?
     !current_user.nil?
   end

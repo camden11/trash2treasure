@@ -10,11 +10,12 @@ class ShoppersController < ApplicationController
   def show
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
-    if current_organization != @sale.organization
-      redirect_to @sale && return unless current_shopper(@sale) == @shopper
-      redirect_to action: :checkout if @shopper.ready_for_checkout
-    else
-      redirect_to action: :index, sale_id: @sale.id unless @shopper.ready_for_checkout
+    if belongs_to_current_organization? @sale
+      redirect_to action: :index, sald_id: @sale.id unless @shopper.ready_for_checkout
+    elsif current_shopper(@sale) != @shopper
+      redirect_to @sale
+    elsif @shopper.ready_for_checkout
+      redirect_to action: :checkout
     end
     @shopper_items = @shopper.shopper_items
   end
