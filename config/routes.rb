@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   get 'shoppers/search' => "shoppers#search", as: :search_shopper
-  get 'shoppers/:id/checkout' => "shoppers#checkout"
+  get 'shoppers/:id/checkout' => "shoppers#checkout", as: :checkout_shopper
   put 'shoppers/:id/confirm_checkout' => "shoppers#confirm_checkout", as: :confirm_shopper_checkout
   resources :shoppers, only: [:index, :show, :update]
   

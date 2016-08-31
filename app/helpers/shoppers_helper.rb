@@ -29,6 +29,12 @@ module ShoppersHelper
     end
   end
 
+  def redirect_if_ready_for_checkout(sale)
+    if active_shopper?(sale) && current_shopper(@sale).ready_for_checkout
+      redirect_to checkout_shopper_path(current_shopper sale)
+    end
+  end
+
   private
 
 end
