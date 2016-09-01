@@ -7,16 +7,17 @@
     margin-top: 10px;
     // padding: 6px 12px;
 
-    > .panel-heading {
-      background-color: white;
+    .panel-heading-link {
+      color: black;
 
-      a {
-        color: black;
+      .panel-heading {
+        background-color: white;
+        transition: background-color .25s;
       }
-    }
 
-    .panel-header-active {
+      .panel-heading-active {
       background-color: #f5f5f5;
+    }
     }
   }
 }

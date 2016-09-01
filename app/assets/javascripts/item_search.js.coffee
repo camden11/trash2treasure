@@ -24,3 +24,6 @@ $('.btn-item-search').click ->
       sale_id: sale_id
   $('.btn-item-search').addClass('btn-item-search-inactive');
   return
+
+$('.panel-heading-link').click ->
+  $('.panel-heading').toggleClass('panel-heading-active')
