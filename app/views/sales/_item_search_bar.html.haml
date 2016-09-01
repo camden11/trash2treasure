@@ -1,9 +1,8 @@
 .row.item-search
   .col-xs-12
-    = form_tag items_path, method: :get, remote: true do
-      .input-group
-        = text_field_tag :query, params[:query], { placeholder: "Search", id: "search-items", class: "form-control" }
-        = hidden_field_tag :sale_id, @sale.id, { id: "search-sale-id"}
-        %span.input-group-btn
-          %button.btn.btn-default{ type: "submit" }
-            Search
+    .input-group
+      = text_field_tag :query, params[:query], { placeholder: "Search", id: "search-items", class: "form-control" }
+      = hidden_field_tag :sale_id, @sale.id, { id: "search-sale-id"}
+      %span.input-group-btn
+        %button.btn.btn-default.btn-item-search.btn-item-search-inactive
+          Clear
