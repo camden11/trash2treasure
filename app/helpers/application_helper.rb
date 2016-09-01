@@ -17,8 +17,4 @@ module ApplicationHelper
   def shopper_item_class_name(shopper_item)
     "shopper-item-#{shopper_item.id}"
   end
-
-  def item_categories
-    ["Accessories", "School Supplies", "Storage", "Kitchen", "Electronics and Appliances", "Sports", "Bathroom", "Household", "Shoes"] 
-  end
 end

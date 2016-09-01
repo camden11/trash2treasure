@@ -1,3 +1,14 @@
+searchParams = ->
+  params = 
+    query: $('#search-items').val()
+    sale_id: $('#search-sale-id').val()
+  $('.item-category').each ->
+    category = $(this).data('category')
+    checked = if $(this).is(':checked') then 1 else 0
+    params[category] = checked
+    return
+  params
+
 $(document).keyup ->
   query = $('#search-items').val()
   if query.length > 0
@@ -5,12 +16,13 @@ $(document).keyup ->
   else
     $('.btn-item-search').addClass('btn-item-search-inactive');
   sale_id = $('#search-sale-id').val()
+  params = 
+    query: query
+    sale_id: sale_id
   $.ajax
     type: 'GET'
     url: '/items'
-    data:
-      query: query
-      sale_id: sale_id
+    data: searchParams()
   return
 
 $('.btn-item-search').click ->

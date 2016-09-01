@@ -12,6 +12,7 @@ class SalesController < ApplicationController
     new_shopper @sale
     @item = Item.new if @sale.organization == current_organization
     @items = @sale.items
+    @categories = item_categories
   end
 
   def new

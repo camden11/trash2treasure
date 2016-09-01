@@ -10,14 +10,37 @@
     .panel-heading-link {
       color: black;
 
+      &:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+
       .panel-heading {
         background-color: white;
         transition: background-color .25s;
+        text-decoration: none;
       }
 
       .panel-heading-active {
       background-color: #f5f5f5;
+      }
     }
+
+    form {
+      margin-bottom: 0;
+    }
+
+    .panel-footer {
+      border-top: 1px solid #f5f5f5;
+      background-color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: #f5f5f5;
+      }
     }
   }
 }

@@ -8,6 +8,8 @@
         - item_categories.each do |category|
           .checkbox.text-left
             %label
-              %input{type: "checkbox" }="#{category}"
+              %input.item-category{type: "checkbox", data: { category: "#{category}"} }="#{category}"
+      .panel-footer#clear-filter
+        Clear
 
 

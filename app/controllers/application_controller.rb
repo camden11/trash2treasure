@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ShoppersHelper
 
+  helper_method :item_categories
+
   def logged_in_user
     unless logged_in?
       store_location
@@ -23,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def no_nav
     @no_nav = true
+  end
+
+  def item_categories
+    ["Accessories", "School Supplies", "Storage", "Kitchen", "Electronics and Appliances", "Sports", "Bathroom", "Household", "Shoes"] 
   end
 end

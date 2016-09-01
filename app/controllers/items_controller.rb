@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     else
       @sale = Sale.find(params[:sale_id])
       @items = Item.search(params[:sale_id], params[:query])
+      @categories == checked_categories.size > 0 ? checked_categories : item_categories
     end
   end
 
@@ -43,5 +44,15 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :total_quantity, :sale_id)
+  end
+
+  def checked_categories
+    categories = []
+    item_categories.each do |category|
+      if params[category.to_sym] == 1
+        categories << category
+      end
+    end
+    categories
   end
 end
