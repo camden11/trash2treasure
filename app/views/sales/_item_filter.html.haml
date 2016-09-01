@@ -1,8 +1,10 @@
+- filter_indicator = active_categories.size == item_categories.size ? "All" : active_categories.join(",")
+
 .panel-group  
   .item-filter.panel.panel-default
     %a.panel-heading-link{ href: "#item-categories-body", data: { toggle: "collapse" } }
-      .panel-heading
-        Filter...
+      .panel-heading#item-filter-heading
+        = render partial: 'sales/item_filter_heading', locals: { active_categories: active_categories }
     #item-categories-body.panel-collapse.collapse
       %form.item-categories.panel-body
         - item_categories.each do |category|

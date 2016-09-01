@@ -1,12 +1,14 @@
 .row.sale-items
+  - empty_categories = 0
   - categories.each do |category|
-    %h3= category
     - category_items = items.select { |item| item.category == category }
-    - category_items.each do |item|
-      = render partial: 'items/item_block', locals: { item: item }
-    - if category_items.empty?
-      %h4.no-results= "No items in the #{category} category found"
-  - if items.empty?
+    - if category_items.any?
+      %h3= category
+      - category_items.each do |item|
+        = render partial: 'items/item_block', locals: { item: item }
+    - else
+      - empty_categories += 1
+  - if items.empty? || empty_categories == categories.size
     %h3.no-results No results found
 
 = javascript_include_tag 'items' if active_shopper? sale

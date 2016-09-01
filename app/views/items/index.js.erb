@@ -1,1 +1,3 @@
 $('#sale-items').html("<%= escape_javascript(render partial: 'sales/sale_items', locals: { items: @items, sale: @sale, categories: @categories }).html_safe %>");
+
+$('#item-filter-heading').html("<%= escape_javascript(render partial: 'sales/item_filter_heading', locals: { active_categories: @categories }).html_safe %>");
