@@ -62,6 +62,15 @@ nav.navbar.header {
           font-size: 20px;
         }
       }
+
+      li.shopper-header-cart {
+        transition: background-color .25s, color .25s;
+      }
+
+      li.shopper-header-cart-active {
+        background-color: #417505;
+        a { color: white; }
+      }
     }
   }
 }
