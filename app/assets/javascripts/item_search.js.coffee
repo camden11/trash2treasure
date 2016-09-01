@@ -9,7 +9,7 @@ searchParams = ->
     return
   params
 
-$(document).keyup ->
+search = ->
   query = $('#search-items').val()
   if query.length > 0
     $('.btn-item-search').removeClass('btn-item-search-inactive');
@@ -25,17 +25,19 @@ $(document).keyup ->
     data: searchParams()
   return
 
+$(document).keyup search
+$('.item-category').click search
+
 $('.btn-item-search').click ->
   $('#search-items').val("");
-  sale_id = $('#search-sale-id').val()
-  $.ajax
-    type: 'GET'
-    url: '/items'
-    data:
-      query: ""
-      sale_id: sale_id
-  $('.btn-item-search').addClass('btn-item-search-inactive');
+  search()
   return
 
 $('.panel-heading-link').click ->
   $('.panel-heading').toggleClass('panel-heading-active')
+  return
+
+$('#clear-filter').click ->
+  $('.item-category').attr('checked', false)
+  search()
+  return

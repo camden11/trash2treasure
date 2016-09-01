@@ -47,9 +47,34 @@
 
 .btn-item-search-inactive {
   color: #C0C0C0;
+  cursor: default;
+  &:hover {
+    color: #C0C0C0;
+    background-color: white;
+    border-color: #ccc;
+  }
+
+  &:active:focus {
+    color: #C0C0C0;
+    background-color: white;
+  }
+
+  &:focus {
+    color: #C0C0C0;
+    background-color: white;
+  }
 }
 
 .sale-items {
   margin-top: 20px;
   padding-bottom: 70px;
+
+  h3:first-child {
+    margin-top: 10px;
+  }
+
+  h3 {
+    margin-left: 15px;
+    margin-top: 40px;
+  }
 }

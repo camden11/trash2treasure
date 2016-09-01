@@ -1,7 +1,12 @@
 .row.sale-items
-  - items.each do |item|
-    = render partial: 'items/item_block', locals: { item: item }
+  - categories.each do |category|
+    %h3= category
+    - category_items = items.select { |item| item.category == category }
+    - category_items.each do |item|
+      = render partial: 'items/item_block', locals: { item: item }
+    - if category_items.empty?
+      %h4.no-results= "No items in the #{category} category found"
   - if items.empty?
     %h3.no-results No results found
 
-= javascript_include_tag 'items' if active_shopper? @sale
+= javascript_include_tag 'items' if active_shopper? sale

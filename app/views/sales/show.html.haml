@@ -12,7 +12,7 @@
   = render partial: 'sales/item_filter'
 
 #sale-items
-  = render partial: 'sales/sale_items', locals: { items: @items, sale: @sale }
+  = render partial: 'sales/sale_items', locals: { items: @items, sale: @sale, categories: @categories }
 
 - if @item
   = render partial: 'sales/item_form'

@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     else
       @sale = Sale.find(params[:sale_id])
       @items = Item.search(params[:sale_id], params[:query])
-      @categories == checked_categories.size > 0 ? checked_categories : item_categories
+      @categories = checked_categories.size > 0 ? checked_categories : item_categories
     end
   end
 
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   def checked_categories
     categories = []
     item_categories.each do |category|
-      if params[category.to_sym] == 1
+      if params[category] == "1"
         categories << category
       end
     end
