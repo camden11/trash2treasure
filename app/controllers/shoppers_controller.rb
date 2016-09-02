@@ -21,7 +21,7 @@ class ShoppersController < ApplicationController
   end
 
   def search
-    if @shopper = Shopper.find_by(id: params[:shopper_id], ready_for_checkout: true)
+    if @shopper = Shopper.find_by(id: params[:shopper_id], ready_for_checkout: true, checked_out: nil)
       @sale = @shopper.sale
       if current_organization != @sale.organization
         redirect_to @sale
@@ -29,7 +29,7 @@ class ShoppersController < ApplicationController
       @shopper_items = @shopper.shopper_items
       render 'show'
     else
-      flash[:danger] = "Shopper not found"
+      flash[:danger] = "Shopper not found or is not ready for checkout"
       redirect_to :back
     end
   end

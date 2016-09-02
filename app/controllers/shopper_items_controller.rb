@@ -11,7 +11,7 @@ class ShopperItemsController < ApplicationController
   def update
     @shopper_item = ShopperItem.find(params[:id])
     @shopper_item.quantity = params[:quantity]
-    if current_shopper(@shopper_item.sale) == @shopper_item.shopper && @shopper_item.save
+    if (current_shopper(@shopper_item.sale) == @shopper_item.shopper || @shopper_item.sale.organization == current_organization) && @shopper_item.save
       render 'update'
     else
       render nothing: true
@@ -20,7 +20,7 @@ class ShopperItemsController < ApplicationController
 
   def destroy
     @shopper_item = ShopperItem.find(params[:id])
-    if current_shopper(@shopper_item.sale) == @shopper_item.shopper && @shopper_item.save && @shopper_item.destroy
+    if (current_shopper(@shopper_item.sale) == @shopper_item.shopper || @shopper_item.sale.organization == current_organization) && @shopper_item.destroy
       render 'destroy'
     else
       render nothing: true
