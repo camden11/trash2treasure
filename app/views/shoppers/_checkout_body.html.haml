@@ -1,0 +1,4 @@
+- if @shopper.checked_out
+  = render partial: 'shoppers/checked_out', locals: { sale: sale }
+- else 
+  = render partial: 'shoppers/waiting_for_checkout', locals: { shopper: shopper }

@@ -48,6 +48,7 @@ class ShoppersController < ApplicationController
   def checkout
     no_nav
     @shopper = Shopper.find params[:id]
+    @sale = @shopper.sale
     if current_shopper(@shopper.sale) != @shopper
       redirect_to @shopper.sale
       return

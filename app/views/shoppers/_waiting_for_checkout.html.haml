@@ -1,0 +1,14 @@
+.vertical-center
+  .shopper-checkout-code-block
+    Your checkout code is
+    %br
+    %span.shopper-checkout-code= @shopper.id
+    %br
+    %span.shopper-checkout-small-text
+      Present your code at the register to check out
+    %br
+    %br
+    %span.shopper-checkout-small-text
+      Not ready to check out?
+    %br
+    = link_to "Continue Shopping", shopper_path(@shopper, ready_for_checkout: false), method: :put, class: "btn" 
