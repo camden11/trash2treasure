@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     @no_nav = true
   end
 
+  def auto_refresh
+    @auto_refresh = true
+  end
+
   def item_categories
     ["Accessories", "School Supplies", "Storage", "Kitchen", "Electronics and Appliances", "Sports", "Bathroom", "Household", "Shoes"] 
   end

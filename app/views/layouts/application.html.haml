@@ -2,6 +2,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    - if @auto_refresh
+      %meta{"http-equiv" => "refresh", content: "5"}
     %title Trash2treasure
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

@@ -47,6 +47,7 @@ class ShoppersController < ApplicationController
 
   def checkout
     no_nav
+    auto_refresh
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
     if current_shopper(@shopper.sale) != @shopper
