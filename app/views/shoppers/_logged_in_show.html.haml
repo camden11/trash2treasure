@@ -9,6 +9,9 @@
   .cart-shopper-items
     = render partial: "shoppers/cart_shopper_items", locals: { shopper: shopper, edit: false }
 
+  .cart-new-shopper-item
+    = render partial: 'shoppers/new_shopper_item', locals: { shopper: shopper, items: items, shopper_item: shopper_item, sale: sale }
+
   .row.cart-price
     .col-xs-6
       Total:

@@ -1,4 +1,4 @@
 - if logged_in? && @sale == current_organization.primary_sale
-  = render partial: "logged_in_show", locals: { shopper: @shopper, sale: @sale }
+  = render partial: "logged_in_show", locals: { shopper: @shopper, sale: @sale, shopper_item: @shopper_item, items: @items }
 - else
   = render partial: "shopper_show", locals: { shopper: @shopper, sale: @sale }

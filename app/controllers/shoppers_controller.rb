@@ -18,6 +18,10 @@ class ShoppersController < ApplicationController
       redirect_to action: :checkout
     end
     @shopper_items = @shopper.shopper_items
+    if logged_in? && @sale == current_organization.primary_sale
+      @shopper_item = ShopperItem.new
+      @items = @sale.items.order('name ASC')
+    end
   end
 
   def search

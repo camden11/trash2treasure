@@ -11,7 +11,7 @@ class SalesController < ApplicationController
     redirect_if_ready_for_checkout @sale
     new_shopper @sale
     @item = Item.new if @sale.organization == current_organization
-    @items = @sale.items
+    @items = @sale.items.order('name ASC')
     @categories = item_categories
   end
 

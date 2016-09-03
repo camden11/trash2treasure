@@ -1,0 +1,13 @@
+= form_for shopper_item, remote: true do |f|
+
+  = f.label :quantity
+  = f.number_field :quantity, min: 1, value: 1
+  
+  = f.label :item_id do
+    = "Item"
+  = f.collection_select :item_id, items, :id, :name
+
+  = f.hidden_field :shopper_id, value: shopper.id
+
+  = f.submit "Add Item"
+

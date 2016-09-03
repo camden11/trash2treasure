@@ -1,7 +1,12 @@
 class ShopperItemsController < ApplicationController
 
   def create
-    if active_shopper? sale
+    if params[:shopper_item] && current_organization == Item.find_by(id: good_params[:item_id]).organization
+      @shopper_item = ShopperItem.find_or_initialize_by(shopper_id: good_params[:shopper_id], item_id: good_params[:item_id])
+      @shopper_item.quantity += Integer(good_params[:quantity] || 0)
+      @shopper_item.save
+      render template: 'shopper_items/destroy'
+    elsif active_shopper? sale
       @shopper_item = ShopperItem.find_or_initialize_by(shopper_id: current_shopper(sale).id, item_id: shopper_item_params[:item_id])
       @shopper_item.quantity += Integer(shopper_item_params[:quantity] || 0)
       @shopper_item.save
@@ -31,6 +36,10 @@ class ShopperItemsController < ApplicationController
 
   def shopper_item_params
     params.permit(:item_id, :quantity)
+  end
+
+  def good_params
+    params.require(:shopper_item).permit(:item_id, :shopper_id, :quantity)
   end
 
   def sale

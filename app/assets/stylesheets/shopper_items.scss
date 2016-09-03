@@ -40,3 +40,13 @@
   height: 25px;
   margin-bottom: 20px;
 }
+
+.cart-new-shopper-item {
+  height: 0;
+  overflow: hidden;
+  transition: height .25s;
+}
+
+.cart-new-shopper-item-active {
+  height: auto;
+}
