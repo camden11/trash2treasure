@@ -31,6 +31,8 @@ class ShoppersController < ApplicationController
         redirect_to @sale
       end
       @shopper_items = @shopper.shopper_items
+      @shopper_item = ShopperItem.new
+      @items = @sale.items.order('name ASC')
       render 'show'
     else
       flash[:danger] = "Shopper not found or is not ready for checkout"

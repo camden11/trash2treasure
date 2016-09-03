@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830042815) do
+ActiveRecord::Schema.define(version: 20160903192715) do
+
+  create_table "extra_charges", force: :cascade do |t|
+    t.float   "price"
+    t.string  "name"
+    t.integer "shopper_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name",               limit: 255

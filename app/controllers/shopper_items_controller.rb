@@ -5,7 +5,11 @@ class ShopperItemsController < ApplicationController
       @shopper_item = ShopperItem.find_or_initialize_by(shopper_id: good_params[:shopper_id], item_id: good_params[:item_id])
       @shopper_item.quantity += Integer(good_params[:quantity] || 0)
       @shopper_item.save
-      render template: 'shopper_items/destroy'
+      if @shopper_item.sale.organization == current_organization
+        render 'logged_in_destroy'
+      else
+        render 'destroy'
+      end
     elsif active_shopper? sale
       @shopper_item = ShopperItem.find_or_initialize_by(shopper_id: current_shopper(sale).id, item_id: shopper_item_params[:item_id])
       @shopper_item.quantity += Integer(shopper_item_params[:quantity] || 0)
@@ -26,7 +30,11 @@ class ShopperItemsController < ApplicationController
   def destroy
     @shopper_item = ShopperItem.find(params[:id])
     if (current_shopper(@shopper_item.sale) == @shopper_item.shopper || @shopper_item.sale.organization == current_organization) && @shopper_item.destroy
-      render 'destroy'
+      if @shopper_item.sale.organization == current_organization
+        render 'logged_in_destroy'
+      else
+        render 'destroy'
+      end
     else
       render nothing: true
     end
