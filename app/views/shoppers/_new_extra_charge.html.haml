@@ -1,0 +1,13 @@
+%h4 Add an extra charge
+= form_for ExtraCharge.new, remote: true do |f|
+  
+  = f.label :price
+  = f.number_field :price
+  
+  = f.label :name
+  = f.text_field :name
+
+  = f.hidden_field :shopper_id, value: shopper.id
+
+  = f.submit "Add charge"
+

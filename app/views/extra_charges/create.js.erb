@@ -1,0 +1,8 @@
+$('.cart-shopper-items').html("<%= escape_javascript(render partial: 'shoppers/cart_shopper_items', locals: { shopper: @extra_charge.shopper, edit: true }).html_safe %>");
+$('.shopper-header-cart').html("<%= escape_javascript(render partial: 'layouts/shopper_header_cart', locals: { shopper: @extra_charge.shopper }).html_safe %>");
+$('.shopper-total-price').html("<%= escape_javascript(render partial: 'shoppers/total_price', locals: { shopper: @extra_charge.shopper }).html_safe %>");
+$('.edit-cart').html("<%= escape_javascript(render partial: 'shoppers/edit_cart_button', locals: { shopper: @extra_charge.shopper }).html_safe %>");
+$('.checkout').html("<%= escape_javascript(render partial: 'shoppers/confirm_checkout_button', locals: { shopper: @extra_charge.shopper }).html_safe %>");
+
+$('.edit-cart-text').html("Done")
+$('.edit-cart-text').attr("data-editing", "true")

@@ -1,9 +1,9 @@
-.shopper-item-block {
+.shopper-item-block, .extra-charge-block {
   font-size: 20px;
   margin-top: 10px;
 }
 
-.edit-shopper-item-block {
+.edit-shopper-item-block, .edit-extra-charge-block {
   height: 0px;
   width: 100%;
   color: white;
@@ -11,7 +11,7 @@
   overflow: hidden;
   transition: height .25s, margin-bottom .25s;
 
-  .shopper-item-remove, .shopper-item-minus, .shopper-item-plus {
+  .shopper-item-remove, .shopper-item-minus, .shopper-item-plus, .extra-charge-remove {
     width: 33.3333333%;
     height: 100%;
     float: left;
@@ -23,7 +23,7 @@
     }
   }
 
-  .shopper-item-remove {
+  .shopper-item-remove, .extra-charge-remove {
     background-color: #D0021B;
   }
 
@@ -36,7 +36,7 @@
   }
 }
 
-.edit-shopper-item-block-active {
+.edit-shopper-item-block-active, .edit-extra-charge-block-active {
   height: 25px;
   margin-bottom: 20px;
 }

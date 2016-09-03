@@ -9,8 +9,14 @@
   .cart-shopper-items
     = render partial: "shoppers/cart_shopper_items", locals: { shopper: shopper, edit: false }
 
+  .cart-extra-charges
+    = render partial: "shoppers/cart_extra_charges", locals: { shopper: shopper, edit: false }
+
   .cart-new-shopper-item
     = render partial: 'shoppers/new_shopper_item', locals: { shopper: shopper, items: items, shopper_item: shopper_item, sale: sale }
+
+  .cart-new-shopper-item
+    = render partial: 'shoppers/new_extra_charge', locals: { shopper: shopper }
 
   .row.cart-price
     .col-xs-6

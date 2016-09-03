@@ -17,4 +17,8 @@ module ApplicationHelper
   def shopper_item_class_name(shopper_item)
     "shopper-item-#{shopper_item.id}"
   end
+
+  def extra_charge_class_name(charge)
+    "#extra-charge-#{charge.id}"
+  end
 end

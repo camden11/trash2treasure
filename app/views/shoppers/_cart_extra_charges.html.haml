@@ -1,0 +1,4 @@
+- if shopper.extra_charges.any?
+  - shopper.extra_charges.each do |extra_charge|
+    %div{ class: extra_charge_class_name(extra_charge) }
+      = render partial: "extra_charges/extra_charge_block", locals: { extra_charge: extra_charge, edit: edit }

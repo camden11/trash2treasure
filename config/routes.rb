@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :shoppers, only: [:index, :show, :update]
   
   resources :shopper_items, only: [:create, :update, :destroy]
+  resources :extra_charges, only: [:create, :destroy]
 end

@@ -2,6 +2,7 @@ class Shopper < ActiveRecord::Base
 
   has_many :shopper_items
   has_many :items, through: :shopper_items
+  has_many :extra_charges
   belongs_to :sale
 
   def num_shopper_items
@@ -16,6 +17,9 @@ class Shopper < ActiveRecord::Base
     price = 0;
     self.shopper_items.each do |shopper_item|
       price += shopper_item.price
+    end
+    self.extra_charges.each do |charge|
+      price += charge.price
     end
     price
   end
