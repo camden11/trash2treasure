@@ -1,5 +1,5 @@
 .col-xs-12
-  .edit-button.vertical-center{ class: ("edit-button-active" if shopper.shopper_items.any?) }
+  .edit-button.vertical-center{ class: ("edit-button-active" if shopper.shopper_items.any? || shopper.sale.organization == current_organization) }
     .text-center.edit-cart-text{ data: { editing: "false" } }
       Edit Cart
 

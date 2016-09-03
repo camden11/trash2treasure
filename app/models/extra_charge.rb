@@ -4,4 +4,8 @@ class ExtraCharge < ActiveRecord::Base
   validates :name, presence: true
   validates :shopper_id, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
+
+  def sale
+    self.shopper.sale
+  end
 end
