@@ -4,6 +4,6 @@
       = extra_charge.name
     .col-xs-4.text-right
       = number_to_currency extra_charge.price
-  .edit-extra-charge-block{ class: ("edit-shopper-item-block-active" if edit) }
+  .edit-extra-charge-block{ class: ("edit-extra-charge-block-active" if edit) }
     .extra-charge-remove.vertical-center
       = link_to "Remove", extra_charge_path(extra_charge), method: :delete, remote: true, class: "text-center"

@@ -19,6 +19,6 @@ module ApplicationHelper
   end
 
   def extra_charge_class_name(charge)
-    "#extra-charge-#{charge.id}"
+    "extra-charge-#{charge.id}"
   end
 end
