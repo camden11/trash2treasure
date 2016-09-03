@@ -17,3 +17,6 @@
 .row.checked-out-shoppers
   - @shoppers.each do |shopper|
     = render partial: "shopper_block", locals: { shopper: shopper }
+
+.row.new-shopper-form
+  = render partial: "new_shopper_form", locals: { sale: @sale }

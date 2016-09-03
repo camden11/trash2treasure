@@ -39,6 +39,7 @@
 
 .edit-button-active {
   background-color: $gray;
+  cursor: pointer;
 }
 
 .checkout-button-active {
@@ -79,5 +80,11 @@ body.shoppers.checkout {
   .checked-out-shoppers {
     margin-top: 20px;
     font-size: 20px;
+  }
+}
+
+.new-shopper-form {
+  h4 {
+    margin-left: 15px;
   }
 }

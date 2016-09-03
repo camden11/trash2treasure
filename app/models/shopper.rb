@@ -5,6 +5,8 @@ class Shopper < ActiveRecord::Base
   has_many :extra_charges
   belongs_to :sale
 
+  validates :sale_id, presence: true
+
   def num_shopper_items
     total = 0
     self.shopper_items.each do |shopper_item|

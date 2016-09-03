@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'shoppers/search' => "shoppers#search", as: :search_shopper
   get 'shoppers/:id/checkout' => "shoppers#checkout", as: :checkout_shopper
   put 'shoppers/:id/confirm_checkout' => "shoppers#confirm_checkout", as: :confirm_shopper_checkout
-  resources :shoppers, only: [:index, :show, :update]
+  resources :shoppers, only: [:index, :show, :update, :create]
   
   resources :shopper_items, only: [:create, :update, :destroy]
   resources :extra_charges, only: [:create, :destroy]

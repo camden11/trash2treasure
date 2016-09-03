@@ -11,7 +11,7 @@ class ShoppersController < ApplicationController
     @shopper = Shopper.find params[:id]
     @sale = @shopper.sale
     if belongs_to_current_organization? @sale
-      redirect_to action: :index, sald_id: @sale.id unless @shopper.ready_for_checkout
+      redirect_to action: :index, sale_id: @sale.id unless @shopper.ready_for_checkout
     elsif current_shopper(@sale) != @shopper
       redirect_to @sale
     elsif @shopper.ready_for_checkout
@@ -19,8 +19,18 @@ class ShoppersController < ApplicationController
     end
     @shopper_items = @shopper.shopper_items
     if logged_in? && @sale == current_organization.primary_sale
+      @edit = @shopper.items.any?
       @shopper_item = ShopperItem.new
       @items = @sale.items.order('name ASC')
+    end
+  end
+
+  def create
+    @shopper = Shopper.new(sale_id: params[:sale_id], ready_for_checkout: true)
+    if @shopper.save
+      redirect_to @shopper
+    else
+      render nothing: true
     end
   end
 
