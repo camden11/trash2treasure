@@ -291,7 +291,32 @@
     ['thief', 'thieves'],
     ['groove', 'grooves'],
     ['pickaxe', 'pickaxes'],
-    ['whiskey', 'whiskies']
+    ['whiskey', 'whiskies'],
+    // Custom
+    ['Purse (large)', 'Purses (large)'],
+    ['Purse (small)', 'Purses (small)'],
+    ['Suitcase/Luggage', 'Suitcases/Luggage'],
+    ['Book (hard cover)', 'Books (hard cover)'],
+    ['Book (soft cover)', 'Books (soft cover)'],
+    ['Workbook/Manual', 'Workbooks/Manuals'],
+    ['Cup (glass)', 'Cups (glass)'],
+    ['Cup (plastic)', 'Cups (plastic)'],
+    ['Cutting Board (plastic)', 'Cutting Boards (plastic)'],
+    ['Cutting Board (wood)', 'Cutting Boards (wood)'],
+    ['Plate/Bowl', 'Plates/Bowls'],
+    ['Pot/Pan', 'Pots/Pans'],
+    ['Water Bottle/Tumbler', 'Water Bottles/Tumblers'],
+    ['Cord/Cable', 'Cords/Cables'],
+    ['Curling Iron/Straightener', 'Curling Irons/Straighteners'],
+    ['Bulletin Board (large)', 'Bulletin Boards (large)'],
+    ['Bulletin Board (small)', 'Bulletin Boards (small)'],
+    ['Dustpan/Brush', 'Dustpans/Brushes'],
+    ['Holiday Misc.', 'Holiday Misc.'],
+    ['Poster/Picture', 'Posters/Pictures'],
+    ['Rug/Carpet', 'Rugs/Carpets'],
+    ['Trash Can (large)', 'Trash Cans (large)'],
+    ['Trash Can (small)', 'Trash Cans (small)']
+
   ].forEach(function (rule) {
     return pluralize.addIrregularRule(rule[0], rule[1]);
   });
