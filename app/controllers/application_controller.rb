@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def item_categories
-    ["Accessories", "School Supplies", "Storage", "Kitchen", "Electronics and Appliances", "Sports", "Bathroom", "Household", "Shoes"] 
+    ["Accessories", "School Supplies", "Storage", "Kitchen", "Electronics and Appliances", "Sports", "Bathroom", "Household", "Shoes", nil] 
   end
 
   def set_cache_headers
